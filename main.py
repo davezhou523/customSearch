@@ -4,8 +4,8 @@ import re
 # 配置
 API_KEY = 'AIzaSyDVGWYSuDRMX3GTM6NxqAxX7AxW4vq8qNE'
 SEARCH_ENGINE_ID = '45f1e3f35c4214993'
-SEARCH_QUERY = 'gloves business contact email phone'
-NUM_RESULTS = 10
+SEARCH_QUERY = 'disposable gloves contact email phone'
+NUM_RESULTS = 10 #限制数量10条
 
 
 def get_search_results(query, num_results):
