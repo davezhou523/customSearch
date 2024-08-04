@@ -4,6 +4,8 @@ import requests
 import re
 import mysql.connector
 from mysql.connector import Error
+from db.connect import DatabaseConnection
+
 
 import hashlib
 
@@ -46,22 +48,22 @@ def save_to_database(keyword,url, email, phone, category):
     """保存提取到的数据到 MySQL 数据库"""
     try:
         currentTime=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        unique= tool.encry.generate_md5(url)
-        print(unique)
+        md5= tool.encry.generate_md5(url)
+        print(md5)
+        connection = DatabaseConnection()
+        sql = "select * from search_contact where md5=%s limit 1"
+        isExists=connection.fetch_one(sql,(md5,))
+        if isExists:
+            sql="update search_contact set email=%s ,phone=%s ,update_time=%s where md5=%s"
+            connection.execute_query(sql,(email,phone,currentTime,md5))
+        else:
+            sql = "INSERT INTO search_contact (keyword,url, email, phone,category,create_time,md5) VALUES (%s,%s, %s, %s,%s,%s,%s)"
+            connection.execute_query(sql, (keyword,url, email, phone,category,currentTime,md5))
 
-        connection = mysql.connector.connect(**DB_CONFIG)
-        cursor = connection.cursor()
-        insert_query = "INSERT INTO search_contact (keyword,url, email, phone,category,create_time,md5) VALUES (%s,%s, %s, %s,%s,%s,%s)"
-        cursor.execute(insert_query, (keyword,url, email, phone,category,currentTime,unique))
-        connection.commit()
     except Error as e:
         print(f"数据库错误: {e}")
     finally:
-        if (cursor):
-            cursor.close()
-        if (connection.is_connected()):
-            connection.close()
-
+        connection.disconnect()
 def run():
     results = get_search_results(SEARCH_QUERY, NUM_RESULTS)
 

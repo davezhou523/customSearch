@@ -1,7 +1,7 @@
 # db_singleton.py
 import mysql.connector
 from mysql.connector import Error
-
+from config.config import ConfigLoader
 class DatabaseConnection:
     _instance = None
 
@@ -10,12 +10,21 @@ class DatabaseConnection:
             cls._instance = super(DatabaseConnection, cls).__new__(cls)
         return cls._instance
 
-    def __init__(self, host, user, password, database):
-        self.host = host
-        self.user = user
-        self.password = password
-        self.database = database
-        self.connection = None
+    def __init__(self, host=None, user=None, password=None, database=None):
+        db_config = ConfigLoader().get_db_config()
+        if host is not None:
+            self.host = host
+            self.user = user
+            self.password = password
+            self.database = database
+            self.connection = None
+        else:
+            self.host = db_config.get('host')
+            self.user = db_config.get('user')
+            self.password = db_config.get('password')
+            self.database = db_config.get('database')
+            self.connection = None
+        self.connect()
 
     def connect(self):
         if not self.connection or not self.connection.is_connected():
@@ -26,7 +35,7 @@ class DatabaseConnection:
                     password=self.password,
                     database=self.database
                 )
-                print("连接成功")
+
             except Error as e:
                 print(f"连接失败: {e}")
 
