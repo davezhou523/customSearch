@@ -7,7 +7,6 @@ import mysql.connector
 from mysql.connector import Error
 from db.connect import DatabaseConnection
 
-
 import hashlib
 
 import tool.encry
@@ -17,6 +16,8 @@ API_KEY = 'AIzaSyDVGWYSuDRMX3GTM6NxqAxX7AxW4vq8qNE'
 SEARCH_ENGINE_ID = '45f1e3f35c4214993'
 # 设置排除的国家和地区
 EXCLUDED_COUNTRIES = ['中国', '马来西亚', '越南', '泰国']
+
+
 def run():
     #排除地区国家：中国、马来西亚，越南，泰国、印度
     query = (
@@ -24,36 +25,45 @@ def run():
         '-site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw'
     )
     num = 10  # 限制数量10条
-    results = get_search_results(query, num)
+    start_page = 1
+    record=0
+    while True:
+        results = get_search_results(query, num, start_page)
+        start_page = start_page + num
+        for result in results:
+            title = result.get('title')
+            snippet = result.get('snippet')
+            link = result.get('link')
+            # 提取联系信息
+            emails, phones = extract_contact_info(snippet)
+            print(f'Title: {title}')
+            print(f'Link: {link}')
+            print(f'Emails: {", ".join(emails)}')
+            print(f'Phones: {", ".join(phones)}')
+            print('-' * 40)
+            record+=1
+            print(f" 条数:{record}")
+            save_to_database(query, link, ",".join(emails), ",".join(phones), 2)
+        print(f"start_page is {start_page}" )
+        if start_page >= 11:
+            break
 
-    for result in results:
-        title = result.get('title')
-        snippet = result.get('snippet')
-        link = result.get('link')
-        # 提取联系信息
-        emails, phones = extract_contact_info(snippet)
-        print(f'Title: {title}')
-        print(f'Link: {link}')
-        print(f'Emails: {", ".join(emails)}')
-        print(f'Phones: {", ".join(phones)}')
-        print('-' * 40)
-        save_to_database(query, link, ",".join(emails), ",".join(phones), 2)
 
-
-
-def get_search_results(query, num,gl="us",lr=""):
+def get_search_results(query, num, startPage=1, gl="us", lr=""):
     # 设置请求参数
     params = {
         'q': query,
         'num': num,
+        'start': startPage,
         'cx': SEARCH_ENGINE_ID,  # 你的Custom Search Engine ID
         'key': API_KEY,  # 你的API密钥
         'gl': gl,  # 最终用户的地理位置，可以根据需要更改
-        'lr': lr # 搜索结果语言
+        'lr': lr  # 搜索结果语言
 
     }
 
     # 调用API
+    # api 文档：https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list?hl=zh-cn#response-body
     response = requests.get('https://www.googleapis.com/customsearch/v1', params=params)
 
     # url = f'https://www.googleapis.com/customsearch/v1?q={query}&key={API_KEY}&cx={SEARCH_ENGINE_ID}&num={num}'
@@ -77,24 +87,24 @@ def extract_contact_info(text):
     phones = phone_pattern.findall(text)
 
     return emails, phones
-def save_to_database(keyword,url, email, phone, category):
+
+
+def save_to_database(keyword, url, email, phone, category):
     """保存提取到的数据到 MySQL 数据库"""
     try:
-        currentTime=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        md5= tool.encry.generate_md5(url)
+        currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        md5 = tool.encry.generate_md5(url)
         connection = DatabaseConnection()
         sql = "select * from search_contact where md5=%s limit 1"
-        isExists=connection.fetch_one(sql,(md5,))
+        isExists = connection.fetch_one(sql, (md5,))
         if isExists:
-            sql="update search_contact set email=%s ,phone=%s ,update_time=%s where md5=%s"
-            connection.execute_query(sql,(email,phone,currentTime,md5))
+            sql = "update search_contact set email=%s ,phone=%s ,update_time=%s where md5=%s"
+            connection.execute_query(sql, (email, phone, currentTime, md5))
         else:
             sql = "INSERT INTO search_contact (keyword,url, email, phone,category,create_time,md5) VALUES (%s,%s, %s, %s,%s,%s,%s)"
-            connection.execute_query(sql, (keyword,url, email, phone,category,currentTime,md5))
+            connection.execute_query(sql, (keyword, url, email, phone, category, currentTime, md5))
 
     except Error as e:
         print(f"数据库错误: {e}")
     finally:
         connection.disconnect()
-
-
