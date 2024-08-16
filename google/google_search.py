@@ -14,20 +14,28 @@ import tool.encry
 # 配置
 API_KEY = 'AIzaSyDVGWYSuDRMX3GTM6NxqAxX7AxW4vq8qNE'
 SEARCH_ENGINE_ID = '45f1e3f35c4214993'
-SEARCH_QUERY = 'disposable gloves contact email phone'
-NUM_RESULTS = 10 #限制数量10条
 
-# MySQL 数据库配置
-DB_CONFIG = {
-    'user': 'root',
-    'password': '1234abcd',
-    'host': '127.0.0.1',
-    'database': 'trade'
-}
 
-def get_search_results(query, num_results):
-    url = f'https://www.googleapis.com/customsearch/v1?q={query}&key={API_KEY}&cx={SEARCH_ENGINE_ID}&num={num_results}'
-    response = requests.get(url)
+
+
+def get_search_results(query, num):
+    # 设置请求参数
+    params = {
+        'q': query,
+        'num': num,
+        'cx': SEARCH_ENGINE_ID,  # 你的Custom Search Engine ID
+        'key': API_KEY,  # 你的API密钥
+        'gl': 'us',  # 谷歌区域代码，可以根据需要更改
+        # 'lr': 'lang_zh-CN',  # 搜索结果语言
+        'exclude': 'country:CN|country:MY|country:VN|country:TH|country:IN'  # 排除特定国家
+    }
+
+    # 调用API
+    response = requests.get('https://www.googleapis.com/customsearch/v1', params=params)
+
+
+    # url = f'https://www.googleapis.com/customsearch/v1?q={query}&key={API_KEY}&cx={SEARCH_ENGINE_ID}&num={num}'
+    # response = requests.get(url)
     if response.status_code == 200:
         return response.json().get('items', [])
     else:
@@ -49,7 +57,6 @@ def save_to_database(keyword,url, email, phone, category):
     try:
         currentTime=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         md5= tool.encry.generate_md5(url)
-        print(md5)
         connection = DatabaseConnection()
         sql = "select * from search_contact where md5=%s limit 1"
         isExists=connection.fetch_one(sql,(md5,))
@@ -65,7 +72,9 @@ def save_to_database(keyword,url, email, phone, category):
     finally:
         connection.disconnect()
 def run():
-    results = get_search_results(SEARCH_QUERY, NUM_RESULTS)
+    query = 'disposable gloves contact email phone'
+    num = 10  # 限制数量10条
+    results = get_search_results(query, num)
 
     for result in results:
         title = result.get('title')
@@ -75,10 +84,11 @@ def run():
         # 提取联系信息
         emails, phones = extract_contact_info(snippet)
 
-        save_to_database(SEARCH_QUERY,link,  ",".join(emails),  ",".join(phones),"google")
+
         print(f'Title: {title}')
         print(f'Link: {link}')
         print(f'Emails: {", ".join(emails)}')
         print(f'Phones: {", ".join(phones)}')
         print('-' * 40)
+        save_to_database(query, link, ",".join(emails), ",".join(phones), 2)
 

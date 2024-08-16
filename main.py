@@ -12,10 +12,10 @@ def main():
 
     # mysqlconn= DatabaseConnection()
     # sql="select * from search_contact where md5=%s limit 1"
-    #
-    # data=mysqlconn.fetch_one(sql,("d41d8cd98f00b204e9800998ecf8427e",))
-    # # data=mysqlconn.fetch_one(sql)
-    # print(data[0])
+
+    # data=mysqlconn.fetch_one(sql,("8beb30f521e1c27a153ef276272fc84a",))
+    # data=mysqlconn.fetch_one(sql)
+    # print(data)
 
 
     google.google_search.run()

@@ -61,7 +61,7 @@ class DatabaseConnection:
 
     def fetch_all(self, query, params=None):
         """执行查询并获取所有结果"""
-        cursor = self.connection.cursor()
+        cursor = self.connection.cursor(dictionary=True)
         result = None
         try:
             cursor.execute(query, params)
@@ -74,7 +74,7 @@ class DatabaseConnection:
 
     def fetch_one(self, query, params=None):
         """执行查询并获取单条结果"""
-        cursor = self.connection.cursor()
+        cursor = self.connection.cursor(dictionary=True)
         result = None
         try:
             cursor.execute(query, params)
