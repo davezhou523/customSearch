@@ -3,6 +3,7 @@ import json
 
 import requests
 import re
+from bs4 import BeautifulSoup
 import mysql.connector
 from mysql.connector import Error
 from db.connect import DatabaseConnection
@@ -26,7 +27,7 @@ def run():
     )
     num = 10  # 限制数量10条
     start_page = 1
-    record=0
+    record = 0
     while True:
         results = get_search_results(query, num, start_page)
         start_page = start_page + num
@@ -35,16 +36,28 @@ def run():
             snippet = result.get('snippet')
             link = result.get('link')
             # 提取联系信息
-            emails, phones = extract_contact_info(snippet)
+            # emails, phones = extract_contact_info(snippet)
+            # 从结果中提取电子邮件和电话号码
+            all_emails = set()
+            all_phones = set()
+            emails, phones = extract_emails_from_url(link)
+            all_emails.update(emails)
+            all_phones.update(phones)
             print(f'Title: {title}')
             print(f'Link: {link}')
-            print(f'Emails: {", ".join(emails)}')
-            print(f'Phones: {", ".join(phones)}')
+            print(f"找到的电子邮件: {all_emails}")
+            print(f"找到的电话号码: {all_phones}")
+            # print(f'Emails: {", ".join(emails)}')
+            # print(f'Phones: {", ".join(phones)}')
             print('-' * 40)
-            record+=1
+            record += 1
             print(f" 条数:{record}")
-            save_to_database(query, link, ",".join(emails), ",".join(phones), 2)
-        print(f"start_page is {start_page}" )
+            if len(all_emails) > 0:
+                for email in all_emails:
+                    save_to_database(query, link, email, ",".join(all_phones), 2)
+            else:
+                save_to_database(query, link, ",".join(all_emails), ",".join(all_phones), 2)
+        print(f"start_page is {start_page}")
         if start_page >= 11:
             break
 
@@ -65,9 +78,6 @@ def get_search_results(query, num, startPage=1, gl="us", lr=""):
     # 调用API
     # api 文档：https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list?hl=zh-cn#response-body
     response = requests.get('https://www.googleapis.com/customsearch/v1', params=params)
-
-    # url = f'https://www.googleapis.com/customsearch/v1?q={query}&key={API_KEY}&cx={SEARCH_ENGINE_ID}&num={num}'
-    # response = requests.get(url)
     if response.status_code == 200:
         # 将响应数据写入文件
         with open('response.json', 'w', encoding='utf-8') as f:
@@ -89,11 +99,44 @@ def extract_contact_info(text):
     return emails, phones
 
 
+def extract_emails_from_url(url):
+    try:
+
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        # 匹配电子邮件地址
+        # emails = set(re.findall(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", soup.get_text()))
+        emails = set(re.findall(r'[\w\.-]+@[\w\.-]+\.\w+', soup.get_text("<br>")))
+
+        # 匹配电话号码（国际标准和常见格式）
+        phones = set(re.findall(r"\+?\d[\d\s.-]{8,}\d", soup.get_text()))
+        if len(phones) == 0:
+            phones = match_phone(soup.get_text())
+
+        return emails, phones
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching {url}: {e}")
+        return set(), set()
+
+
+def match_phone(text):
+    pattern_capture = r'\((\d{3})\) (\d{3})-(\d{4})'
+    match_capture = re.search(pattern_capture, text)
+    if match_capture:
+        # 现在可以通过索引来访问捕获的组
+        area_code, prefix, suffix = match_capture.groups()
+        phone_number =f"({area_code}) {prefix}-{suffix}"
+        phoneSet=set()
+        if area_code:
+            return phoneSet|{phone_number}
+    return set()
+
+
 def save_to_database(keyword, url, email, phone, category):
     """保存提取到的数据到 MySQL 数据库"""
     try:
         currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        md5 = tool.encry.generate_md5(url)
+        md5 = tool.encry.generate_md5(url + email)
         connection = DatabaseConnection()
         sql = "select * from search_contact where md5=%s limit 1"
         isExists = connection.fetch_one(sql, (md5,))
