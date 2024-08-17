@@ -110,14 +110,28 @@ def extract_emails_from_url(url):
 
         # 匹配电话号码（国际标准和常见格式）
         phones = set(re.findall(r"\+?\d[\d\s.-]{8,}\d", soup.get_text()))
+        # print(phones)
         if len(phones) == 0:
             phones = match_phone(soup.get_text())
+        else:
+            phones= format_phone(phones)
+
 
         return emails, phones
     except requests.exceptions.RequestException as e:
         print(f"Error fetching {url}: {e}")
         return set(), set()
 
+def format_phone(phones):
+    for phone in phones:
+        # 去除两端的空白字符（包括换行符）
+        cleaned_text = phone.strip()
+        # 按换行符分割字符串
+        lines = cleaned_text.split('\n')
+        cleaned_lines = [line.strip() for line in lines if line.strip()]  # 排除空行
+        if len(cleaned_lines) == 1:
+            return set(cleaned_lines)
+    return set()
 
 def match_phone(text):
     pattern_capture = r'\((\d{3})\) (\d{3})-(\d{4})'
@@ -126,6 +140,7 @@ def match_phone(text):
         # 现在可以通过索引来访问捕获的组
         area_code, prefix, suffix = match_capture.groups()
         phone_number =f"({area_code}) {prefix}-{suffix}"
+
         phoneSet=set()
         if area_code:
             return phoneSet|{phone_number}
