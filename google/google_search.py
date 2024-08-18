@@ -8,8 +8,7 @@ import mysql.connector
 from mysql.connector import Error
 from db.connect import DatabaseConnection
 
-import hashlib
-
+from urllib.parse import urljoin, urlparse
 import tool.encry
 
 # 配置
@@ -40,7 +39,7 @@ def run():
             # 从结果中提取电子邮件和电话号码
             all_emails = set()
             all_phones = set()
-            emails, phones = extract_emails_from_url(link)
+            emails, phones = crawl_website(link)
             all_emails.update(emails)
             all_phones.update(phones)
             print(f'Title: {title}')
@@ -99,7 +98,34 @@ def extract_contact_info(text):
     return emails, phones
 
 
-def extract_emails_from_url(url):
+def crawl_website(base_url, max_depth=4):
+    to_visit = [(base_url, 0)]  # (url, depth)
+    visited_urls = set()
+    while to_visit:
+        url, depth = to_visit.pop()
+        if depth > max_depth or url in visited_urls:
+            continue
+
+        visited_urls.add(url)
+
+        emails, phones, soup = extract_contact_info_from_url(url)
+        print(url,len(emails), len(phones), soup.find_all('a', href=True))
+        if len(emails)>0 or len(phones)>0:
+            print(f"Found on {url}")
+            print(f"Emails: {emails}")
+            print(f"Phones: {phones}\n")
+            return emails,phones
+
+        # 提取所有子页面链接
+        if soup:
+            for link in soup.find_all('a', href=True):
+                new_url = urljoin(base_url, link['href'])
+                print(new_url)
+                # 只爬取同一网站的链接，避免外部链接
+                if urlparse(new_url).netloc == urlparse(base_url).netloc:
+                    to_visit.append((new_url, depth + 1))
+    return set(), set()
+def extract_contact_info_from_url(url):
     try:
 
         response = requests.get(url)
@@ -117,10 +143,10 @@ def extract_emails_from_url(url):
             phones= format_phone(phones)
 
 
-        return emails, phones
+        return emails, phones,soup
     except requests.exceptions.RequestException as e:
         print(f"Error fetching {url}: {e}")
-        return set(), set()
+        return set(), set(),None
 
 def format_phone(phones):
     for phone in phones:
