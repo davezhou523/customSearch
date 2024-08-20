@@ -73,10 +73,19 @@ def get_search_results(query, num, startPage=1, gl="us", lr=""):
         'lr': lr  # 搜索结果语言
 
     }
+    # 代理服务器的地址和端口
+    proxies = {
+        'socks5': '127.0.0.1:10809',
+        'http': 'http://127.0.0.1:10809',
+        'https': 'https://127.0.0.1:10809',  # 如果代理支持HTTPS，也请添加
+    }
 
     # 调用API
     # api 文档：https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list?hl=zh-cn#response-body
-    response = requests.get('https://www.googleapis.com/customsearch/v1', params=params)
+    url=f"https://www.googleapis.com/customsearch/v1"
+    print(url)
+    response = requests.get(url,params=params,proxies=proxies,verify=False)
+    print(response)
     if response.status_code == 200:
         # 将响应数据写入文件
         with open('response.json', 'w', encoding='utf-8') as f:

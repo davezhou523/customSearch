@@ -40,7 +40,7 @@ def main():
     # print(data)
     url = "https://shopping.medexpressgloves.com/"
     # url = "https://shopping.medexpressgloves.com/Contact-Us_ep_58.html"
-    getContentByWebdriver(url)
+    # getContentByWebdriver(url)
     # emails, phones = google.google_search.crawl_website(url)
     # all_emails = set()
     # all_phones = set()
@@ -49,7 +49,7 @@ def main():
     # print(f"找到的电子邮件: {all_emails}")
     # print(f"找到的电话号码: {all_phones}")
 
-    # google.google_search.run()
+    google.google_search.run()
 
 
 if __name__ == '__main__':
