@@ -8,7 +8,7 @@
         "request": [
             {
                 "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "totalResults": "75500000",
+                "totalResults": "73400000",
                 "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
                 "count": 10,
                 "startIndex": 1,
@@ -22,7 +22,7 @@
         "nextPage": [
             {
                 "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "totalResults": "75500000",
+                "totalResults": "73400000",
                 "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
                 "count": 10,
                 "startIndex": 11,
@@ -38,10 +38,10 @@
         "title": "glove"
     },
     "searchInformation": {
-        "searchTime": 0.229398,
-        "formattedSearchTime": "0.23",
-        "totalResults": "75500000",
-        "formattedTotalResults": "75,500,000"
+        "searchTime": 0.238501,
+        "formattedSearchTime": "0.24",
+        "totalResults": "73400000",
+        "formattedTotalResults": "73,400,000"
     },
     "items": [
         {
@@ -96,25 +96,45 @@
         },
         {
             "kind": "customsearch#result",
-            "title": "Contact Us - Liberty Safety",
-            "htmlTitle": "<b>Contact</b> Us - Liberty Safety",
-            "link": "https://www.libertysafety.com/contact/",
-            "displayLink": "www.libertysafety.com",
-            "snippet": "Disposable Gloves · Medical Grade ... To speak to a sales associate, either fill in the Request a Quote form below or contact us by phone or email.",
-            "htmlSnippet": "<b>Disposable Gloves</b> &middot; Medical Grade ... To speak to a sales associate, either fill in the Request a Quote form below or <b>contact</b> us by <b>phone</b> or <b>email</b>.",
-            "formattedUrl": "https://www.libertysafety.com/contact/",
-            "htmlFormattedUrl": "https://www.libertysafety.com/<b>contact</b>/",
+            "title": "Atlantic Safety Products - High Quality Disposable Gloves",
+            "htmlTitle": "Atlantic Safety Products - High Quality <b>Disposable Gloves</b>",
+            "link": "https://www.atlanticsafetyproducts.com/",
+            "displayLink": "www.atlanticsafetyproducts.com",
+            "snippet": "Atlantic Safety Products offers high quality disposable gloves for various industries including automotive, industrial, law enforcement, tattooing, ...",
+            "htmlSnippet": "Atlantic Safety Products offers high quality <b>disposable gloves</b> for various industries including automotive, industrial, law enforcement, tattooing,&nbsp;...",
+            "formattedUrl": "https://www.atlanticsafetyproducts.com/",
+            "htmlFormattedUrl": "https://www.atlanticsafetyproducts.com/",
             "pagemap": {
+                "cse_thumbnail": [
+                    {
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbugW_1H164KwdF9vsoTM--X5nxLPFmDAdH9fPGmTzTBvJxoZilFvaKLQ&s",
+                        "width": "311",
+                        "height": "162"
+                    }
+                ],
                 "metatags": [
                     {
+                        "og:image": "http://www.atlanticsafetyproducts.com/cdn/shop/files/ASP-logo-black-yellow-1600x904.png?height=628&pad_color=fff&v=1673360386&width=1200",
                         "og:type": "website",
+                        "og:image:width": "1200",
                         "twitter:card": "summary_large_image",
-                        "og:site_name": "Liberty Safety",
-                        "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover",
-                        "og:title": "Contacts Archive",
-                        "og:locale": "en_US",
-                        "og:url": "https://www.libertysafety.com/contact/",
-                        "msapplication-tileimage": "https://www.libertysafety.com/lgs2022/wp-content/uploads/2022/09/cropped-Asset-1-300x300.png"
+                        "twitter:title": "Atlantic Safety Products - High Quality Disposable Gloves",
+                        "og:site_name": "Atlantic Safety Products",
+                        "og:title": "Atlantic Safety Products - High Quality Disposable Gloves",
+                        "og:image:height": "628",
+                        "shopify-checkout-api-token": "3943e1144f6ae9feb9d97433e3974fa4",
+                        "og:description": "Atlantic Safety Products offers high quality disposable gloves for various industries including automotive, industrial, law enforcement, tattooing, and more.",
+                        "og:image:secure_url": "https://www.atlanticsafetyproducts.com/cdn/shop/files/ASP-logo-black-yellow-1600x904.png?height=628&pad_color=fff&v=1673360386&width=1200",
+                        "viewport": "width=device-width,initial-scale=1",
+                        "twitter:description": "Atlantic Safety Products offers high quality disposable gloves for various industries including automotive, industrial, law enforcement, tattooing, and more.",
+                        "shopify-digital-wallet": "/68203905306/digital_wallets/dialog",
+                        "smart-seo-integrated": "true",
+                        "og:url": "https://www.atlanticsafetyproducts.com/"
+                    }
+                ],
+                "cse_image": [
+                    {
+                        "src": "http://www.atlanticsafetyproducts.com/cdn/shop/files/ASP-logo-black-yellow-1600x904.png?height=628&pad_color=fff&v=1673360386&width=1200"
                     }
                 ]
             }
@@ -192,6 +212,31 @@
                 "cse_image": [
                     {
                         "src": "https://edge.disstg.commercecloud.salesforce.com/dw/image/v2/BFXK_STG/on/demandware.static/-/Library-Sites-MechanixSharedLibrary/default/v4f313559f0b7a5d2cd60eabf775d737f37b2456c/images/hp/2024/20240813_hp_mobile_1170x1120.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Contact Us - Liberty Safety",
+            "htmlTitle": "<b>Contact</b> Us - Liberty Safety",
+            "link": "https://www.libertysafety.com/contact/",
+            "displayLink": "www.libertysafety.com",
+            "snippet": "Disposable Gloves · Medical Grade ... To speak to a sales associate, either fill in the Request a Quote form below or contact us by phone or email.",
+            "htmlSnippet": "<b>Disposable Gloves</b> &middot; Medical Grade ... To speak to a sales associate, either fill in the Request a Quote form below or <b>contact</b> us by <b>phone</b> or <b>email</b>.",
+            "formattedUrl": "https://www.libertysafety.com/contact/",
+            "htmlFormattedUrl": "https://www.libertysafety.com/<b>contact</b>/",
+            "pagemap": {
+                "metatags": [
+                    {
+                        "og:type": "website",
+                        "twitter:card": "summary_large_image",
+                        "og:site_name": "Liberty Safety",
+                        "viewport": "width=device-width, initial-scale=1.0, viewport-fit=cover",
+                        "og:title": "Contacts Archive",
+                        "og:locale": "en_US",
+                        "og:url": "https://www.libertysafety.com/contact/",
+                        "msapplication-tileimage": "https://www.libertysafety.com/lgs2022/wp-content/uploads/2022/09/cropped-Asset-1-300x300.png"
                     }
                 ]
             }
@@ -286,45 +331,48 @@
         },
         {
             "kind": "customsearch#result",
-            "title": "Atlantic Safety Products - High Quality Disposable Gloves",
-            "htmlTitle": "Atlantic Safety Products - High Quality <b>Disposable Gloves</b>",
-            "link": "https://www.atlanticsafetyproducts.com/",
-            "displayLink": "www.atlanticsafetyproducts.com",
-            "snippet": "Atlantic Safety Products offers high quality disposable gloves for various industries including automotive, industrial, law enforcement, tattooing, ...",
-            "htmlSnippet": "Atlantic Safety Products offers high quality <b>disposable gloves</b> for various industries including automotive, industrial, law enforcement, tattooing,&nbsp;...",
-            "formattedUrl": "https://www.atlanticsafetyproducts.com/",
-            "htmlFormattedUrl": "https://www.atlanticsafetyproducts.com/",
+            "title": "Contact Us – Eco Gloves",
+            "htmlTitle": "<b>Contact</b> Us – Eco <b>Gloves</b>",
+            "link": "https://ecogloves.co/pages/contact-us",
+            "displayLink": "ecogloves.co",
+            "snippet": "Contact Eco Gloves for all your disposable glove needs. Our dedicated team is ready to help you with any questions regarding our sustainable and ...",
+            "htmlSnippet": "<b>Contact</b> Eco Gloves for all your <b>disposable glove</b> needs. Our dedicated team is ready to <b>help</b> you with any questions regarding our sustainable and&nbsp;...",
+            "formattedUrl": "https://ecogloves.co/pages/contact-us",
+            "htmlFormattedUrl": "https://eco<b>gloves</b>.co/pages/<b>contact</b>-us",
             "pagemap": {
                 "cse_thumbnail": [
                     {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbugW_1H164KwdF9vsoTM--X5nxLPFmDAdH9fPGmTzTBvJxoZilFvaKLQ&s",
-                        "width": "311",
-                        "height": "162"
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDQSwNsTvTQN3VIQSiCbUbD6iqw3HL3ipngWdeMbB-Oho0IJ6Up1Q9SZo&s",
+                        "width": "300",
+                        "height": "168"
                     }
                 ],
                 "metatags": [
                     {
-                        "og:image": "http://www.atlanticsafetyproducts.com/cdn/shop/files/ASP-logo-black-yellow-1600x904.png?height=628&pad_color=fff&v=1673360386&width=1200",
+                        "og:image": "https://cdn.shopify.com/s/files/1/0260/2221/5742/files/Cover_Image_1920x1080_2.png?v=1661552468",
+                        "theme-color": "#78cdd2",
                         "og:type": "website",
-                        "og:image:width": "1200",
                         "twitter:card": "summary_large_image",
-                        "twitter:title": "Atlantic Safety Products - High Quality Disposable Gloves",
-                        "og:site_name": "Atlantic Safety Products",
-                        "og:title": "Atlantic Safety Products - High Quality Disposable Gloves",
-                        "og:image:height": "628",
-                        "shopify-checkout-api-token": "3943e1144f6ae9feb9d97433e3974fa4",
-                        "og:description": "Atlantic Safety Products offers high quality disposable gloves for various industries including automotive, industrial, law enforcement, tattooing, and more.",
-                        "og:image:secure_url": "https://www.atlanticsafetyproducts.com/cdn/shop/files/ASP-logo-black-yellow-1600x904.png?height=628&pad_color=fff&v=1673360386&width=1200",
+                        "twitter:title": "Contact Us",
+                        "og:image:width": "1920",
+                        "og:site_name": "Eco Gloves",
+                        "og:title": "Contact Us",
+                        "shopify-checkout-api-token": "d5a3c6db463855e6ecdf8a0309ca7dbc",
+                        "og:image:height": "1080",
+                        "og:description": "Contact Eco Gloves for all your disposable glove needs. Our dedicated team is ready to help you with any questions regarding our sustainable and high-quality gloves. We offer bulk discounts, custom quotes, fast & free shipping, and satisfaction guarantee!",
+                        "og:image:secure_url": "https://cdn.shopify.com/s/files/1/0260/2221/5742/files/Cover_Image_1920x1080_2.png?v=1661552468",
+                        "facebook-domain-verification": "68uvz77bn3wx3dbomtasdqyanptypa",
+                        "fb:app_id": "428022556901509",
+                        "twitter:site": "@ecogloves",
                         "viewport": "width=device-width,initial-scale=1",
-                        "twitter:description": "Atlantic Safety Products offers high quality disposable gloves for various industries including automotive, industrial, law enforcement, tattooing, and more.",
-                        "shopify-digital-wallet": "/68203905306/digital_wallets/dialog",
-                        "smart-seo-integrated": "true",
-                        "og:url": "https://www.atlanticsafetyproducts.com/"
+                        "twitter:description": "Contact Eco Gloves for all your disposable glove needs. Our dedicated team is ready to help you with any questions regarding our sustainable and high-quality gloves. We offer bulk discounts, custom quotes, fast & free shipping, and satisfaction guarantee!",
+                        "shopify-digital-wallet": "/26022215742/digital_wallets/dialog",
+                        "og:url": "https://ecogloves.co/pages/contact-us"
                     }
                 ],
                 "cse_image": [
                     {
-                        "src": "http://www.atlanticsafetyproducts.com/cdn/shop/files/ASP-logo-black-yellow-1600x904.png?height=628&pad_color=fff&v=1673360386&width=1200"
+                        "src": "https://cdn.shopify.com/s/files/1/0260/2221/5742/files/Cover_Image_1920x1080_2.png?v=1661552468"
                     }
                 ]
             }
@@ -371,54 +419,6 @@
                 "cse_image": [
                     {
                         "src": "http://www.gloves.com/cdn/shop/files/GlovesCheckoutNumb_x320_copy.webp?v=1714526203"
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "customsearch#result",
-            "title": "Contact Us – Eco Gloves",
-            "htmlTitle": "<b>Contact</b> Us – Eco <b>Gloves</b>",
-            "link": "https://ecogloves.co/pages/contact-us",
-            "displayLink": "ecogloves.co",
-            "snippet": "Contact Eco Gloves for all your disposable glove needs. Our dedicated team is ready to help you with any questions regarding our sustainable and ...",
-            "htmlSnippet": "<b>Contact</b> Eco Gloves for all your <b>disposable glove</b> needs. Our dedicated team is ready to <b>help</b> you with any questions regarding our sustainable and&nbsp;...",
-            "formattedUrl": "https://ecogloves.co/pages/contact-us",
-            "htmlFormattedUrl": "https://eco<b>gloves</b>.co/pages/<b>contact</b>-us",
-            "pagemap": {
-                "cse_thumbnail": [
-                    {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDQSwNsTvTQN3VIQSiCbUbD6iqw3HL3ipngWdeMbB-Oho0IJ6Up1Q9SZo&s",
-                        "width": "300",
-                        "height": "168"
-                    }
-                ],
-                "metatags": [
-                    {
-                        "og:image": "https://cdn.shopify.com/s/files/1/0260/2221/5742/files/Cover_Image_1920x1080_2.png?v=1661552468",
-                        "theme-color": "#78cdd2",
-                        "og:type": "website",
-                        "twitter:card": "summary_large_image",
-                        "twitter:title": "Contact Us",
-                        "og:image:width": "1920",
-                        "og:site_name": "Eco Gloves",
-                        "og:title": "Contact Us",
-                        "shopify-checkout-api-token": "d5a3c6db463855e6ecdf8a0309ca7dbc",
-                        "og:image:height": "1080",
-                        "og:description": "Contact Eco Gloves for all your disposable glove needs. Our dedicated team is ready to help you with any questions regarding our sustainable and high-quality gloves. We offer bulk discounts, custom quotes, fast & free shipping, and satisfaction guarantee!",
-                        "og:image:secure_url": "https://cdn.shopify.com/s/files/1/0260/2221/5742/files/Cover_Image_1920x1080_2.png?v=1661552468",
-                        "facebook-domain-verification": "68uvz77bn3wx3dbomtasdqyanptypa",
-                        "fb:app_id": "428022556901509",
-                        "twitter:site": "@ecogloves",
-                        "viewport": "width=device-width,initial-scale=1",
-                        "twitter:description": "Contact Eco Gloves for all your disposable glove needs. Our dedicated team is ready to help you with any questions regarding our sustainable and high-quality gloves. We offer bulk discounts, custom quotes, fast & free shipping, and satisfaction guarantee!",
-                        "shopify-digital-wallet": "/26022215742/digital_wallets/dialog",
-                        "og:url": "https://ecogloves.co/pages/contact-us"
-                    }
-                ],
-                "cse_image": [
-                    {
-                        "src": "https://cdn.shopify.com/s/files/1/0260/2221/5742/files/Cover_Image_1920x1080_2.png?v=1661552468"
                     }
                 ]
             }
