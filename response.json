@@ -8,7 +8,7 @@
         "request": [
             {
                 "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "totalResults": "73400000",
+                "totalResults": "72200000",
                 "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
                 "count": 10,
                 "startIndex": 1,
@@ -22,7 +22,7 @@
         "nextPage": [
             {
                 "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "totalResults": "73400000",
+                "totalResults": "72200000",
                 "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
                 "count": 10,
                 "startIndex": 11,
@@ -38,10 +38,10 @@
         "title": "glove"
     },
     "searchInformation": {
-        "searchTime": 0.238501,
-        "formattedSearchTime": "0.24",
-        "totalResults": "73400000",
-        "formattedTotalResults": "73,400,000"
+        "searchTime": 0.23405,
+        "formattedSearchTime": "0.23",
+        "totalResults": "72200000",
+        "formattedTotalResults": "72,200,000"
     },
     "items": [
         {
@@ -96,6 +96,47 @@
         },
         {
             "kind": "customsearch#result",
+            "title": "Life Guard Gloves",
+            "htmlTitle": "Life Guard <b>Gloves</b>",
+            "link": "https://www.lifeguardgloves.com/",
+            "displayLink": "www.lifeguardgloves.com",
+            "snippet": "A little about us... Since the establishment of our vinyl glove factory in 1985 in Taiwan, we have been branching our product lines into various types of latex, ...",
+            "htmlSnippet": "A little about us... Since the establishment of our vinyl <b>glove</b> factory in 1985 in Taiwan, we have been branching our product lines into various types of <b>latex</b>,&nbsp;...",
+            "formattedUrl": "https://www.lifeguardgloves.com/",
+            "htmlFormattedUrl": "https://www.lifeguard<b>gloves</b>.com/",
+            "pagemap": {
+                "cse_thumbnail": [
+                    {
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDc7vq_fjPJ1ercpgTfsLW0xcjKA3z0Pikj1wB951qL97Nnjfyjb8sSg&s",
+                        "width": "403",
+                        "height": "125"
+                    }
+                ],
+                "metatags": [
+                    {
+                        "og:image": "http://static1.squarespace.com/static/59712d779de4bb2cbc1502f7/t/62a246e5e8b7da57207a399a/1654802149674/logo+2.JPG?format=1500w",
+                        "og:type": "website",
+                        "og:image:width": "770",
+                        "twitter:title": "Life Guard Gloves",
+                        "twitter:card": "summary",
+                        "og:site_name": "Life Guard Gloves",
+                        "viewport": "initial-scale=1",
+                        "twitter:url": "https://www.lifeguardgloves.com",
+                        "og:title": "Life Guard Gloves",
+                        "og:image:height": "240",
+                        "og:url": "https://www.lifeguardgloves.com",
+                        "twitter:image": "http://static1.squarespace.com/static/59712d779de4bb2cbc1502f7/t/62a246e5e8b7da57207a399a/1654802149674/logo+2.JPG?format=1500w"
+                    }
+                ],
+                "cse_image": [
+                    {
+                        "src": "http://static1.squarespace.com/static/59712d779de4bb2cbc1502f7/t/62a246e5e8b7da57207a399a/1654802149674/logo+2.JPG?format=1500w"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "customsearch#result",
             "title": "Atlantic Safety Products - High Quality Disposable Gloves",
             "htmlTitle": "Atlantic Safety Products - High Quality <b>Disposable Gloves</b>",
             "link": "https://www.atlanticsafetyproducts.com/",
@@ -141,47 +182,6 @@
         },
         {
             "kind": "customsearch#result",
-            "title": "Life Guard Gloves",
-            "htmlTitle": "Life Guard <b>Gloves</b>",
-            "link": "https://www.lifeguardgloves.com/",
-            "displayLink": "www.lifeguardgloves.com",
-            "snippet": "A little about us... Since the establishment of our vinyl glove factory in 1985 in Taiwan, we have been branching our product lines into various types of latex, ...",
-            "htmlSnippet": "A little about us... Since the establishment of our vinyl <b>glove</b> factory in 1985 in Taiwan, we have been branching our product lines into various types of <b>latex</b>,&nbsp;...",
-            "formattedUrl": "https://www.lifeguardgloves.com/",
-            "htmlFormattedUrl": "https://www.lifeguard<b>gloves</b>.com/",
-            "pagemap": {
-                "cse_thumbnail": [
-                    {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDc7vq_fjPJ1ercpgTfsLW0xcjKA3z0Pikj1wB951qL97Nnjfyjb8sSg&s",
-                        "width": "403",
-                        "height": "125"
-                    }
-                ],
-                "metatags": [
-                    {
-                        "og:image": "http://static1.squarespace.com/static/59712d779de4bb2cbc1502f7/t/62a246e5e8b7da57207a399a/1654802149674/logo+2.JPG?format=1500w",
-                        "og:type": "website",
-                        "og:image:width": "770",
-                        "twitter:title": "Life Guard Gloves",
-                        "twitter:card": "summary",
-                        "og:site_name": "Life Guard Gloves",
-                        "viewport": "initial-scale=1",
-                        "twitter:url": "https://www.lifeguardgloves.com",
-                        "og:title": "Life Guard Gloves",
-                        "og:image:height": "240",
-                        "og:url": "https://www.lifeguardgloves.com",
-                        "twitter:image": "http://static1.squarespace.com/static/59712d779de4bb2cbc1502f7/t/62a246e5e8b7da57207a399a/1654802149674/logo+2.JPG?format=1500w"
-                    }
-                ],
-                "cse_image": [
-                    {
-                        "src": "http://static1.squarespace.com/static/59712d779de4bb2cbc1502f7/t/62a246e5e8b7da57207a399a/1654802149674/logo+2.JPG?format=1500w"
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "customsearch#result",
             "title": "Mechanix Wear: Work Gloves",
             "htmlTitle": "Mechanix Wear: Work <b>Gloves</b>",
             "link": "https://www.mechanix.com/us-en/",
@@ -193,9 +193,9 @@
             "pagemap": {
                 "cse_thumbnail": [
                     {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyvcRYdZ9DJGmA5PKqnIy6SseDATyucbprV4hkVTa35UtiT15HGQr5HGp0&s",
-                        "width": "229",
-                        "height": "220"
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf2WboE20MWzRVACrRpb7KpwMYtbiyqg0FWomE2JlxxeHASZqbIiZloizl&s",
+                        "width": "274",
+                        "height": "184"
                     }
                 ],
                 "metatags": [
@@ -211,7 +211,7 @@
                 ],
                 "cse_image": [
                     {
-                        "src": "https://edge.disstg.commercecloud.salesforce.com/dw/image/v2/BFXK_STG/on/demandware.static/-/Library-Sites-MechanixSharedLibrary/default/v4f313559f0b7a5d2cd60eabf775d737f37b2456c/images/hp/2024/20240813_hp_mobile_1170x1120.jpg"
+                        "src": "https://www.mechanix.com/dw/image/v2/BFXK_PRD/on/demandware.static/-/Library-Sites-MechanixSharedLibrary/default/dw9e25709c/images/hp/10_2022/hp_1of2_1610x1075%20copy.jpg?sw=2160&sfrm=jpg&q=100"
                     }
                 ]
             }

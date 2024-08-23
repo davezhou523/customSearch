@@ -7,9 +7,12 @@ from bs4 import BeautifulSoup
 import mysql.connector
 from mysql.connector import Error
 from db.connect import DatabaseConnection
-
 from urllib.parse import urljoin, urlparse
 import tool.encry
+import urllib3
+
+# 禁用所有不安全请求警告
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # 配置
 API_KEY = 'AIzaSyDVGWYSuDRMX3GTM6NxqAxX7AxW4vq8qNE'
@@ -46,13 +49,12 @@ def run():
             print(f'Link: {link}')
             print(f"找到的电子邮件: {all_emails}")
             print(f"找到的电话号码: {all_phones}")
-            # print(f'Emails: {", ".join(emails)}')
-            # print(f'Phones: {", ".join(phones)}')
             print('-' * 40)
             record += 1
             print(f" 条数:{record}")
             if len(all_emails) > 0:
                 for email in all_emails:
+                    email=convert_email_domain_to_lowercase(email)
                     save_to_database(query, link, email, ",".join(all_phones), 2)
             else:
                 save_to_database(query, link, ",".join(all_emails), ",".join(all_phones), 2)
@@ -75,15 +77,16 @@ def get_search_results(query, num, startPage=1, gl="us", lr=""):
     }
     # 代理服务器的地址和端口
     proxies = {
-        'http': 'socks5h://127.0.0.1:10809',
-        'https': 'socks5h://127.0.0.1:10809',  # 如果代理支持HTTPS，也请添加
+        'http': 'socks5h://127.0.0.1:1080',
+        'https': 'socks5h://127.0.0.1:1080',  # 如果代理支持HTTPS，也请添加
     }
 
     # 调用API
     # api 文档：https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list?hl=zh-cn#response-body
     url=f"https://www.googleapis.com/customsearch/v1"
-    print(url)
+    # 忽略InsecureRequestWarning警告
     response = requests.get(url,params=params,proxies=proxies,verify=False)
+
     if response.status_code == 200:
         # 将响应数据写入文件
         with open('response.json', 'w', encoding='utf-8') as f:
@@ -116,7 +119,6 @@ def crawl_website(base_url, max_depth=4):
         visited_urls.add(url)
 
         emails, phones, soup = extract_contact_info_from_url(url)
-        print(url,len(emails), len(phones), soup.find_all('a', href=True))
         if len(emails)>0 or len(phones)>0:
             print(f"Found on {url}")
             print(f"Emails: {emails}")
@@ -127,7 +129,6 @@ def crawl_website(base_url, max_depth=4):
         if soup:
             for link in soup.find_all('a', href=True):
                 new_url = urljoin(base_url, link['href'])
-                print(new_url)
                 # 只爬取同一网站的链接，避免外部链接
                 if urlparse(new_url).netloc == urlparse(base_url).netloc:
                     to_visit.append((new_url, depth + 1))
@@ -143,12 +144,12 @@ def extract_contact_info_from_url(url):
 
         # 匹配电话号码（国际标准和常见格式）
         phones = set(re.findall(r"\+?\d[\d\s.-]{8,}\d", soup.get_text()))
-        # print(phones)
         if len(phones) == 0:
             phones = match_phone(soup.get_text())
+            if len(phones) == 0:
+                phones=match_phone_href(soup)
         else:
             phones= format_phone(phones)
-
 
         return emails, phones,soup
     except requests.exceptions.RequestException as e:
@@ -167,6 +168,7 @@ def format_phone(phones):
     return set()
 
 def match_phone(text):
+
     pattern_capture = r'\((\d{3})\) (\d{3})-(\d{4})'
     match_capture = re.search(pattern_capture, text)
     if match_capture:
@@ -178,24 +180,41 @@ def match_phone(text):
         if area_code:
             return phoneSet|{phone_number}
     return set()
+def match_phone_href(soup):
+    # 查找所有带有 href 属性的 <a> 标签
+    a_tag = soup.find('a', href=True)
+    phoneSet = set()
+    # 检查 href 属性是否包含 'tel:'
+    if a_tag is not None and 'tel:' in a_tag['href']:
+        # 提取电话号码
+        phone_number = a_tag['href'].split(':')[1]
 
-
+        if phone_number:
+            return phoneSet|{phone_number}
+    return set()
+"""
+域名部转成小写
+"""
+def convert_email_domain_to_lowercase(email):
+    local_part,domain_part=email.split("@")
+    return f"{local_part}@{domain_part.lower()}"
 def save_to_database(keyword, url, email, phone, category):
     """保存提取到的数据到 MySQL 数据库"""
     try:
         currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         md5 = tool.encry.generate_md5(url + email)
         connection = DatabaseConnection()
-        sql = "select * from search_contact where md5=%s limit 1"
-        isExists = connection.fetch_one(sql, (md5,))
+        sql = f"select * from search_contact where md5 = :md6 limit 1"
+        isExists = connection.execute_query(sql, {"md6":md5},False)
         if isExists:
             sql = "update search_contact set email=%s ,phone=%s ,update_time=%s where md5=%s"
-            connection.execute_query(sql, (email, phone, currentTime, md5))
+            connection.update_record(sql, (email, phone, currentTime, md5))
         else:
             sql = "INSERT INTO search_contact (keyword,url, email, phone,category,create_time,md5) VALUES (%s,%s, %s, %s,%s,%s,%s)"
-            connection.execute_query(sql, (keyword, url, email, phone, category, currentTime, md5))
+            connection.insert_record(sql, (keyword, url, email, phone, category, currentTime, md5))
 
     except Error as e:
         print(f"数据库错误: {e}")
     finally:
-        connection.disconnect()
+        connection.close()
+        # print(f"数据库错误: {e}")

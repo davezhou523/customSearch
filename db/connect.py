@@ -2,86 +2,159 @@
 import mysql.connector
 from mysql.connector import Error
 from config.config import ConfigLoader
-class DatabaseConnection:
-    _instance = None
+import threading
+from sqlalchemy import create_engine, text
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.exc import SQLAlchemyError
+class SingletonMeta(type):
+    """
+    单例模式元类
+    """
+    _instances = {}
+    _lock = threading.Lock()
 
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super(DatabaseConnection, cls).__new__(cls)
-        return cls._instance
+    def __call__(cls, *args, **kwargs):
+        with cls._lock:
+            if cls not in cls._instances:
+                cls._instances[cls] = super().__call__(*args, **kwargs)
+        return cls._instances[cls]
+class DatabaseConnection(metaclass=SingletonMeta):
 
-    def __init__(self, host=None, user=None, password=None, database=None):
+
+    def __init__(self, db_url=None):
         db_config = ConfigLoader().get_db_config()
-        if host is not None:
-            self.host = host
-            self.user = user
-            self.password = password
-            self.database = database
-            self.connection = None
-        else:
+        if db_url is  None:
             self.host = db_config.get('host')
             self.user = db_config.get('user')
             self.password = db_config.get('password')
             self.database = db_config.get('database')
             self.connection = None
-        self.connect()
+            db_url = f"mysql+pymysql://{self.user}:{self.password}@{self.host}/{self.database}"
 
-    def connect(self):
-        if not self.connection or not self.connection.is_connected():
-            try:
-                self.connection = mysql.connector.connect(
-                    host=self.host,
-                    user=self.user,
-                    password=self.password,
-                    database=self.database
-                )
+        self.engine = create_engine(
+            db_url,
+            pool_size=5,  # 连接池中可用连接的最大数量
+            max_overflow=10,  # 最大溢出连接数
+            pool_timeout=30,  # 超时时间
+            pool_recycle=1800,  # 连接超时时间
+        )
+        self.Session = sessionmaker(bind=self.engine)
 
-            except Error as e:
-                print(f"连接失败: {e}")
+    def close(self):
+        """
+        关闭数据库连接和连接池
+        """
+        self.engine.dispose()
+    def get_session(self):
+        """
+        获取数据库会话
+        """
+        return self.Session()
 
-    def get_connection(self):
-        return self.connection
+    def execute_query(self, query, params=None, fetch_all=True):
+        """
+        执行参数化查询
 
-    def disconnect(self):
-        if self.connection and self.connection.is_connected():
-            self.connection.close()
-            print("连接已关闭")
+        参数:
+        query (str): SQL查询语句。
+        params (tuple/dict): 查询参数，可以是元组或字典。
+        fetch_all (bool): 是否获取所有结果。如果为 False，只获取第一条记录。
 
-    def execute_query(self, query, params=None):
-        """执行 SQL 查询"""
-        cursor = self.connection.cursor()
+        返回:
+        list/tuple: 查询结果。如果 fetch_all 为 True，返回所有记录；否则返回单条记录。
+        """
+        session = self.get_session()
         try:
-            cursor.execute(query, params)
-            return self.connection.commit()
+            # 使用session.execute()执行查询并绑定参数
+            # 使用text()明确声明查询为SQL文本
+            sql_query = text(query)
+            if params is None:
+                result = session.execute(sql_query)
+            else:
+                result = session.execute(sql_query, params)
 
-        except Error as e:
-            print(f"查询执行失败: {e}")
+            if fetch_all:
+                return result.fetchall()
+            else:
+                return result.fetchone()
+        except SQLAlchemyError as e:
+            print(f"Database error: {e}")
         finally:
-            cursor.close()
+            session.close()
 
-    def fetch_all(self, query, params=None):
-        """执行查询并获取所有结果"""
-        cursor = self.connection.cursor(dictionary=True)
-        result = None
+    def paginated_query(self, query, params=None, page=1, page_size=10):
+        """
+        执行分页查询
+
+        参数:
+        query (str): SQL查询语句。
+        params (tuple/dict): 查询参数，可以是元组或字典。
+        page (int): 页码，从1开始。
+        page_size (int): 每页记录数。
+
+        返回:
+        list: 分页查询结果。
+        """
+        offset = (page - 1) * page_size
+        paginated_query = f"{query} LIMIT :limit OFFSET :offset"
+        params = params or {}
+        params.update({'limit': page_size, 'offset': offset})
+
+        return self.execute_query(paginated_query, params)
+
+    def insert_record(self, query, params):
+        """
+        插入记录
+
+        参数:
+        query (str): SQL插入语句。
+        params (dict): 插入参数。
+        """
+        session = self.get_session()
         try:
-            cursor.execute(query, params)
-            result = cursor.fetchall()
-        except Error as e:
-            print(f"查询执行失败: {e}")
+            sql_query = text(query)
+            session.execute(sql_query, params)
+            session.commit()
+        except SQLAlchemyError as e:
+            print(f"Database error: {e}")
+            session.rollback()
         finally:
-            cursor.close()
-        return result
+            session.close()
 
-    def fetch_one(self, query, params=None):
-        """执行查询并获取单条结果"""
-        cursor = self.connection.cursor(dictionary=True)
-        result = None
+    def update_record(self, query, params):
+        """
+        更新记录
+
+        参数:
+        query (str): SQL更新语句。
+        params (dict): 更新参数。
+        """
+        session = self.get_session()
         try:
-            cursor.execute(query, params)
-            result = cursor.fetchone()
-        except Error as e:
-            print(f"查询执行失败: {e}")
+            sql_query = text(query)
+            session.execute(sql_query, params)
+            session.commit()
+        except SQLAlchemyError as e:
+            print(f"Database error: {e}")
+            session.rollback()
         finally:
-            cursor.close()
-        return result
+            session.close()
 
+    def delete_record(self, query, params):
+        """
+        删除记录
+
+        参数:
+        query (str): SQL删除语句。
+        params (dict): 删除参数。
+        """
+        session = self.get_session()
+        try:
+            sql_query = text(query)
+            session.execute(sql_query, params)
+            session.commit()
+        except SQLAlchemyError as e:
+            print(f"Database error: {e}")
+            session.rollback()
+        finally:
+            session.close()

@@ -7,6 +7,7 @@ from db.connect import DatabaseConnection
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from sqlalchemy import text
 
 def getContentByWebdriver(url):
     # 配置Chrome选项
@@ -19,6 +20,7 @@ def getContentByWebdriver(url):
     driver.get(url)
     # 获取网页源码
     page_source = driver.page_source
+    print(page_source)
     # 使用正则表达式提取信息
     emails = set(re.findall(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", page_source))
     phones = set(re.findall(r"\+?\d[\d\s.-]{8,}\d", page_source))
@@ -32,13 +34,19 @@ def getContentByWebdriver(url):
 def main():
     # 在其他模块中使用
 
-    # mysqlconn= DatabaseConnection()
-    # sql="select * from search_contact where md5=%s limit 1"
+    db_connection= DatabaseConnection()
+    #
+    # query = "SELECT * FROM search_contact WHERE md5 = :md5"
+    # params = {'md5': "1afbcadf15603609815423fdad025cf8"}
+    # single_record = db_connection.execute_query(query, params, fetch_all=False)
+    # print(single_record)
 
-    # data=mysqlconn.fetch_one(sql,("8beb30f521e1c27a153ef276272fc84a",))
-    # data=mysqlconn.fetch_one(sql)
-    # print(data)
+    # sql = "update search_contact set email=:email1   where id=:id6"
+    # update_params = {'email1': 'updated_example', 'id6': 19}
+    # db_connection.update_record(sql, update_params)
+
     url = "https://shopping.medexpressgloves.com/"
+    url = "https://www.cypressmed.com/contact-us/"
     # url = "https://shopping.medexpressgloves.com/Contact-Us_ep_58.html"
     # getContentByWebdriver(url)
     # emails, phones = google.google_search.crawl_website(url)
@@ -50,6 +58,7 @@ def main():
     # print(f"找到的电话号码: {all_phones}")
 
     google.google_search.run()
+    # google.google_search.extract_contact_info_from_url(url)
 
 
 if __name__ == '__main__':
