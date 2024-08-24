@@ -51,6 +51,40 @@ class DatabaseConnection(metaclass=SingletonMeta):
         """
         return self.Session()
 
+    def start_transaction(self):
+        """
+        开始一个事务，并返回会话对象
+        """
+        self.session = self.Session()
+        return self.session
+
+    def commit_transaction(self):
+        """
+        提交当前事务
+        """
+        if self.session:
+            try:
+                self.session.commit()
+            except SQLAlchemyError as e:
+                print(f"Commit failed: {e}")
+                self.session.rollback()
+            finally:
+                self.session.close()
+                self.session = None
+
+    def rollback_transaction(self):
+        """
+        回滚当前事务
+        """
+        if self.session:
+            try:
+                self.session.rollback()
+            except SQLAlchemyError as e:
+                print(f"Rollback failed: {e}")
+            finally:
+                self.session.close()
+                self.session = None
+
     def execute_query(self, query, params=None, fetch_all=True):
         """
         执行参数化查询

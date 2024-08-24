@@ -200,21 +200,22 @@ def convert_email_domain_to_lowercase(email):
     return f"{local_part}@{domain_part.lower()}"
 def save_to_database(keyword, url, email, phone, category):
     """保存提取到的数据到 MySQL 数据库"""
+    global db_connection
     try:
         currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         md5 = tool.encry.generate_md5(url + email)
-        connection = DatabaseConnection()
+        db_connection = DatabaseConnection()
         sql = f"select * from search_contact where md5 = :md6 limit 1"
-        isExists = connection.execute_query(sql, {"md6":md5},False)
+        isExists = db_connection.execute_query(sql, {"md6":md5},False)
         if isExists:
-            sql = "update search_contact set email=%s ,phone=%s ,update_time=%s where md5=%s"
-            connection.update_record(sql, (email, phone, currentTime, md5))
+            sql = "update search_contact set email=:email ,phone=:phone ,update_time=:update_time where md5=:md5"
+            db_connection.update_record(sql, {"email":email, "phone":phone, "update_time":currentTime, "md5":md5})
         else:
-            sql = "INSERT INTO search_contact (keyword,url, email, phone,category,create_time,md5) VALUES (%s,%s, %s, %s,%s,%s,%s)"
-            connection.insert_record(sql, (keyword, url, email, phone, category, currentTime, md5))
+            sql = "INSERT INTO search_contact (keyword,url, email, phone,category,create_time,md5) VALUES (:keyword,:url, :email, :phone,:category,:create_time,:md5)"
+            db_connection.insert_record(sql, {"keyword":keyword, "url":url, "email":email, "phone":phone, "category":category, "create_time":currentTime, "md5":md5})
 
     except Error as e:
         print(f"数据库错误: {e}")
     finally:
-        connection.close()
+        db_connection.close()
         # print(f"数据库错误: {e}")

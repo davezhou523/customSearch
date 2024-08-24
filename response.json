@@ -8,7 +8,7 @@
         "request": [
             {
                 "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "totalResults": "72200000",
+                "totalResults": "70300000",
                 "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
                 "count": 10,
                 "startIndex": 1,
@@ -22,7 +22,7 @@
         "nextPage": [
             {
                 "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "totalResults": "72200000",
+                "totalResults": "70300000",
                 "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
                 "count": 10,
                 "startIndex": 11,
@@ -38,12 +38,58 @@
         "title": "glove"
     },
     "searchInformation": {
-        "searchTime": 0.23405,
-        "formattedSearchTime": "0.23",
-        "totalResults": "72200000",
-        "formattedTotalResults": "72,200,000"
+        "searchTime": 0.180286,
+        "formattedSearchTime": "0.18",
+        "totalResults": "70300000",
+        "formattedTotalResults": "70,300,000"
     },
     "items": [
+        {
+            "kind": "customsearch#result",
+            "title": "Contact gloves.com",
+            "htmlTitle": "<b>Contact gloves</b>.com",
+            "link": "https://www.gloves.com/pages/contact-us",
+            "displayLink": "www.gloves.com",
+            "snippet": "SEND A MESSAGE Just fill out the form below and we'll get back to you as soon as possible. Name. E-mail. Message. Submit. HQ 10900 Research Blvd. Suite 160C",
+            "htmlSnippet": "SEND A MESSAGE Just fill out the form below and we&#39;ll get back to you as soon as possible. Name. <b>E-mail</b>. Message. Submit. HQ 10900 Research Blvd. Suite 160C",
+            "formattedUrl": "https://www.gloves.com/pages/contact-us",
+            "htmlFormattedUrl": "https://www.<b>gloves</b>.com/pages/<b>contact</b>-us",
+            "pagemap": {
+                "cse_thumbnail": [
+                    {
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWWH6satNmRkGyqoy4vYu0y3wRGnUrBW-ETO_0__A1A41ZGRd8xmkWmVE&s",
+                        "width": "600",
+                        "height": "67"
+                    }
+                ],
+                "metatags": [
+                    {
+                        "og:image": "http://www.gloves.com/cdn/shop/files/GlovesCheckoutNumb_x320_copy.webp?v=1714526203",
+                        "theme-color": "#ffffff",
+                        "og:type": "website",
+                        "og:image:width": "1200",
+                        "twitter:card": "summary",
+                        "twitter:title": "Contact gloves.com",
+                        "og:site_name": "Gloves.com",
+                        "og:title": "Contact gloves.com",
+                        "og:image:height": "628",
+                        "shopify-checkout-api-token": "1086535f5c6e8d5c834c4299bb52f72d",
+                        "og:description": "Get in touch with gloves.com for inquiries, support, or partnerships. Save up to 50% on latex, disposable, and nitrile gloves.",
+                        "og:image:secure_url": "https://www.gloves.com/cdn/shop/files/GlovesCheckoutNumb_x320_copy.webp?v=1714526203",
+                        "twitter:image": "https://www.gloves.com/cdn/shop/files/GlovesCheckoutNumb_x320_copy_1200x1200_crop_center.webp?v=1714526203",
+                        "viewport": "width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0",
+                        "twitter:description": "Get in touch with gloves.com for inquiries, support, or partnerships. Save up to 50% on latex, disposable, and nitrile gloves.",
+                        "shopify-digital-wallet": "/52578418861/digital_wallets/dialog",
+                        "og:url": "https://www.gloves.com/pages/contact-us"
+                    }
+                ],
+                "cse_image": [
+                    {
+                        "src": "http://www.gloves.com/cdn/shop/files/GlovesCheckoutNumb_x320_copy.webp?v=1714526203"
+                    }
+                ]
+            }
+        },
         {
             "kind": "customsearch#result",
             "title": "Med Express: Disposable Medical Gloves For Sale",
@@ -193,9 +239,9 @@
             "pagemap": {
                 "cse_thumbnail": [
                     {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf2WboE20MWzRVACrRpb7KpwMYtbiyqg0FWomE2JlxxeHASZqbIiZloizl&s",
-                        "width": "274",
-                        "height": "184"
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyvcRYdZ9DJGmA5PKqnIy6SseDATyucbprV4hkVTa35UtiT15HGQr5HGp0&s",
+                        "width": "229",
+                        "height": "220"
                     }
                 ],
                 "metatags": [
@@ -211,7 +257,7 @@
                 ],
                 "cse_image": [
                     {
-                        "src": "https://www.mechanix.com/dw/image/v2/BFXK_PRD/on/demandware.static/-/Library-Sites-MechanixSharedLibrary/default/dw9e25709c/images/hp/10_2022/hp_1of2_1610x1075%20copy.jpg?sw=2160&sfrm=jpg&q=100"
+                        "src": "https://edge.disstg.commercecloud.salesforce.com/dw/image/v2/BFXK_STG/on/demandware.static/-/Library-Sites-MechanixSharedLibrary/default/v4f313559f0b7a5d2cd60eabf775d737f37b2456c/images/hp/2024/20240813_hp_mobile_1170x1120.jpg"
                     }
                 ]
             }
@@ -373,52 +419,6 @@
                 "cse_image": [
                     {
                         "src": "https://cdn.shopify.com/s/files/1/0260/2221/5742/files/Cover_Image_1920x1080_2.png?v=1661552468"
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "customsearch#result",
-            "title": "Contact gloves.com",
-            "htmlTitle": "<b>Contact gloves</b>.com",
-            "link": "https://www.gloves.com/pages/contact-us",
-            "displayLink": "www.gloves.com",
-            "snippet": "SEND A MESSAGE Just fill out the form below and we'll get back to you as soon as possible. Name. E-mail. Message. Submit. HQ 10900 Research Blvd. Suite 160C",
-            "htmlSnippet": "SEND A MESSAGE Just fill out the form below and we&#39;ll get back to you as soon as possible. Name. <b>E-mail</b>. Message. Submit. HQ 10900 Research Blvd. Suite 160C",
-            "formattedUrl": "https://www.gloves.com/pages/contact-us",
-            "htmlFormattedUrl": "https://www.<b>gloves</b>.com/pages/<b>contact</b>-us",
-            "pagemap": {
-                "cse_thumbnail": [
-                    {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWWH6satNmRkGyqoy4vYu0y3wRGnUrBW-ETO_0__A1A41ZGRd8xmkWmVE&s",
-                        "width": "600",
-                        "height": "67"
-                    }
-                ],
-                "metatags": [
-                    {
-                        "og:image": "http://www.gloves.com/cdn/shop/files/GlovesCheckoutNumb_x320_copy.webp?v=1714526203",
-                        "theme-color": "#ffffff",
-                        "og:type": "website",
-                        "og:image:width": "1200",
-                        "twitter:card": "summary",
-                        "twitter:title": "Contact gloves.com",
-                        "og:site_name": "Gloves.com",
-                        "og:title": "Contact gloves.com",
-                        "og:image:height": "628",
-                        "shopify-checkout-api-token": "1086535f5c6e8d5c834c4299bb52f72d",
-                        "og:description": "Get in touch with gloves.com for inquiries, support, or partnerships. Save up to 50% on latex, disposable, and nitrile gloves.",
-                        "og:image:secure_url": "https://www.gloves.com/cdn/shop/files/GlovesCheckoutNumb_x320_copy.webp?v=1714526203",
-                        "twitter:image": "https://www.gloves.com/cdn/shop/files/GlovesCheckoutNumb_x320_copy_1200x1200_crop_center.webp?v=1714526203",
-                        "viewport": "width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0",
-                        "twitter:description": "Get in touch with gloves.com for inquiries, support, or partnerships. Save up to 50% on latex, disposable, and nitrile gloves.",
-                        "shopify-digital-wallet": "/52578418861/digital_wallets/dialog",
-                        "og:url": "https://www.gloves.com/pages/contact-us"
-                    }
-                ],
-                "cse_image": [
-                    {
-                        "src": "http://www.gloves.com/cdn/shop/files/GlovesCheckoutNumb_x320_copy.webp?v=1714526203"
                     }
                 ]
             }
