@@ -44,6 +44,8 @@ class DatabaseConnection(metaclass=SingletonMeta):
         """
         关闭数据库连接和连接池
         """
+        if self.session:
+            self.session.close()
         self.engine.dispose()
     def get_session(self):
         """

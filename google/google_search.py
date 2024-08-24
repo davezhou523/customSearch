@@ -31,22 +31,37 @@ def run():
     start_page = 1
     record = 0
     while True:
-        results = get_search_results(query, num, start_page)
+
+        # ': gl,  # 最终用户的地理位置，可以根据需要更改
+        # 'lr': lr  # 搜索结果语言
+
+        gl = ""
+        lr = "al"
+        results = get_search_results(query, num, start_page,gl,lr)
         start_page = start_page + num
         for result in results:
             title = result.get('title')
             snippet = result.get('snippet')
-            link = result.get('link')
+            url = result.get('link')
             # 提取联系信息
             # emails, phones = extract_contact_info(snippet)
             # 从结果中提取电子邮件和电话号码
             all_emails = set()
             all_phones = set()
-            emails, phones = crawl_website(link)
+            emails, phones = crawl_website(url)
             all_emails.update(emails)
             all_phones.update(phones)
+            location_info = get_website_location(url)
+            # 将字典转换为 JSON 字符串
+            location_json = json.dumps(location_info)
+            if location_info:
+                print(f"IP Address: {location_info['ip']}")
+                print(f"City: {location_info['city']}")
+                print(f"Region: {location_info['region']}")
+                print(f"Country: {location_info['country']}")
+                print(f"Organization: {location_info['org']}")
             print(f'Title: {title}')
-            print(f'Link: {link}')
+            print(f'url: {url}')
             print(f"找到的电子邮件: {all_emails}")
             print(f"找到的电话号码: {all_phones}")
             print('-' * 40)
@@ -55,9 +70,9 @@ def run():
             if len(all_emails) > 0:
                 for email in all_emails:
                     email=convert_email_domain_to_lowercase(email)
-                    save_to_database(query, link, email, ",".join(all_phones), 2)
+                    save_to_database(query, url, email, ",".join(all_phones), 2,location_json,gl,lr)
             else:
-                save_to_database(query, link, ",".join(all_emails), ",".join(all_phones), 2)
+                save_to_database(query, url, ",".join(all_emails), ",".join(all_phones), 2,location_json,gl,lr)
         print(f"start_page is {start_page}")
         if start_page >= 11:
             break
@@ -97,6 +112,24 @@ def get_search_results(query, num, startPage=1, gl="us", lr=""):
         return []
 
 
+def get_website_location(url):
+    # 解析域名
+    domain = url.split("//")[-1].split("/")[0]
+
+    # 获取IP地址
+    ip_response = requests.get(f'https://ipinfo.io/{domain}/json')
+
+    if ip_response.status_code == 200:
+        ip_data = ip_response.json()
+        return {
+            "ip": ip_data.get("ip"),
+            "city": ip_data.get("city"),
+            "region": ip_data.get("region"),
+            "country": ip_data.get("country"),
+            "org": ip_data.get("org"),
+        }
+    else:
+        return None
 def extract_contact_info(text):
     # 正则表达式用于提取电子邮件和电话号码
     email_pattern = re.compile(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}')
@@ -198,7 +231,7 @@ def match_phone_href(soup):
 def convert_email_domain_to_lowercase(email):
     local_part,domain_part=email.split("@")
     return f"{local_part}@{domain_part.lower()}"
-def save_to_database(keyword, url, email, phone, category):
+def save_to_database(keyword, url, email, phone, category,location,gl,lr):
     """保存提取到的数据到 MySQL 数据库"""
     global db_connection
     try:
@@ -208,14 +241,16 @@ def save_to_database(keyword, url, email, phone, category):
         sql = f"select * from search_contact where md5 = :md6 limit 1"
         isExists = db_connection.execute_query(sql, {"md6":md5},False)
         if isExists:
-            sql = "update search_contact set email=:email ,phone=:phone ,update_time=:update_time where md5=:md5"
-            db_connection.update_record(sql, {"email":email, "phone":phone, "update_time":currentTime, "md5":md5})
+            sql = "update search_contact set email=:email ,phone=:phone ,update_time=:update_time ,location=:location,gl=:gl,lr=:lr where md5=:md5"
+            db_connection.update_record(sql, {"email":email, "phone":phone, "update_time":currentTime, "md5":md5,"location":location, "gl":gl, "lr":lr})
         else:
-            sql = "INSERT INTO search_contact (keyword,url, email, phone,category,create_time,md5) VALUES (:keyword,:url, :email, :phone,:category,:create_time,:md5)"
-            db_connection.insert_record(sql, {"keyword":keyword, "url":url, "email":email, "phone":phone, "category":category, "create_time":currentTime, "md5":md5})
+            sql = ("INSERT INTO search_contact (keyword,url, email, phone,category,create_time,md5,location,gl,lr) "
+                   "VALUES (:keyword,:url, :email, :phone,:category,:create_time,:md5,:location,:gl,:lr)")
+            insert_params={"keyword":keyword, "url":url, "email":email, "phone":phone, "category":category, "create_time":currentTime, "md5":md5,"location":location, "gl":gl, "lr":lr}
+            db_connection.insert_record(sql, insert_params)
 
     except Error as e:
         print(f"数据库错误: {e}")
-    finally:
-        db_connection.close()
+    # finally:
+        # db_connection.close()
         # print(f"数据库错误: {e}")

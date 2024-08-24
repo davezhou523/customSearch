@@ -8,29 +8,29 @@
         "request": [
             {
                 "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "totalResults": "70300000",
+                "totalResults": "70200000",
                 "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
                 "count": 10,
                 "startIndex": 1,
+                "language": "al",
                 "inputEncoding": "utf8",
                 "outputEncoding": "utf8",
                 "safe": "off",
-                "cx": "45f1e3f35c4214993",
-                "gl": "us"
+                "cx": "45f1e3f35c4214993"
             }
         ],
         "nextPage": [
             {
                 "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "totalResults": "70300000",
+                "totalResults": "70200000",
                 "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
                 "count": 10,
                 "startIndex": 11,
+                "language": "al",
                 "inputEncoding": "utf8",
                 "outputEncoding": "utf8",
                 "safe": "off",
-                "cx": "45f1e3f35c4214993",
-                "gl": "us"
+                "cx": "45f1e3f35c4214993"
             }
         ]
     },
@@ -38,10 +38,10 @@
         "title": "glove"
     },
     "searchInformation": {
-        "searchTime": 0.180286,
-        "formattedSearchTime": "0.18",
-        "totalResults": "70300000",
-        "formattedTotalResults": "70,300,000"
+        "searchTime": 0.417291,
+        "formattedSearchTime": "0.42",
+        "totalResults": "70200000",
+        "formattedTotalResults": "70,200,000"
     },
     "items": [
         {

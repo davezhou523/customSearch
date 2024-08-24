@@ -34,7 +34,7 @@ def getContentByWebdriver(url):
 def main():
     # 在其他模块中使用
 
-    db_connection= DatabaseConnection()
+    # db_connection= DatabaseConnection()
     #
     # query = "SELECT * FROM search_contact WHERE md5 = :md5"
     # params = {'md5': "1afbcadf15603609815423fdad025cf8"}
