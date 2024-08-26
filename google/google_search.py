@@ -1,22 +1,28 @@
 import datetime
 import json
-
+import socket
 import requests
 import re
 from bs4 import BeautifulSoup
 import mysql.connector
 from mysql.connector import Error
+
+import model.search_contact
 from db.connect import DatabaseConnection
 from urllib.parse import urljoin, urlparse
 import tool.encry
 import urllib3
+import geoip2.database
+from urllib.parse import urlparse
 
 # 禁用所有不安全请求警告
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-# 配置
+#搜索引擎程序化地访问每天的查询数上限为 10,000 次。
+# 配置 AIzaSyBkq9s4W1xTm0LKvMryQhSxm4PZef-Fqgs
+# API_KEY = 'AIzaSyBkq9s4W1xTm0LKvMryQhSxm4PZef-Fqgs'
 API_KEY = 'AIzaSyDVGWYSuDRMX3GTM6NxqAxX7AxW4vq8qNE'
 SEARCH_ENGINE_ID = '45f1e3f35c4214993'
+# SEARCH_ENGINE_ID2 = '237198be3239943fc'
 # 设置排除的国家和地区
 EXCLUDED_COUNTRIES = ['中国', '马来西亚', '越南', '泰国']
 
@@ -28,16 +34,21 @@ def run():
         '-site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw'
     )
     num = 10  # 限制数量10条
-    start_page = 1
+    start_page = 0 #免费搜索限制100页
     record = 0
+    count=0
     while True:
 
         # ': gl,  # 最终用户的地理位置，可以根据需要更改
         # 'lr': lr  # 搜索结果语言
 
         gl = ""
-        lr = "al"
+        # lr = "al"
+        # lr = "dz"
+        lr = "as"
         results = get_search_results(query, num, start_page,gl,lr)
+        if len(results) == 0:
+            break
         start_page = start_page + num
         for result in results:
             title = result.get('title')
@@ -51,7 +62,14 @@ def run():
             emails, phones = crawl_website(url)
             all_emails.update(emails)
             all_phones.update(phones)
-            location_info = get_website_location(url)
+
+            print(f'Title: {title}')
+            print(f'url: {url}')
+            print(f"找到的电子邮件: {all_emails}")
+            print(f"找到的电话号码: {all_phones}")
+            location_info = get_website_location(get_ip_from_domain(url))
+
+
             # 将字典转换为 JSON 字符串
             location_json = json.dumps(location_info)
             if location_info:
@@ -59,11 +77,7 @@ def run():
                 print(f"City: {location_info['city']}")
                 print(f"Region: {location_info['region']}")
                 print(f"Country: {location_info['country']}")
-                print(f"Organization: {location_info['org']}")
-            print(f'Title: {title}')
-            print(f'url: {url}')
-            print(f"找到的电子邮件: {all_emails}")
-            print(f"找到的电话号码: {all_phones}")
+
             print('-' * 40)
             record += 1
             print(f" 条数:{record}")
@@ -74,7 +88,8 @@ def run():
             else:
                 save_to_database(query, url, ",".join(all_emails), ",".join(all_phones), 2,location_json,gl,lr)
         print(f"start_page is {start_page}")
-        if start_page >= 11:
+        count=count+1
+        if count >= 100:
             break
 
 
@@ -108,28 +123,37 @@ def get_search_results(query, num, startPage=1, gl="us", lr=""):
             json.dump(response.json(), f, ensure_ascii=False, indent=4)
         return response.json().get('items', [])
     else:
-        print(f"Error: {response.status_code}")
+        print(f"get_search_results Error: {response.json()}")
         return []
 
-
-def get_website_location(url):
-    # 解析域名
-    domain = url.split("//")[-1].split("/")[0]
-
-    # 获取IP地址
-    ip_response = requests.get(f'https://ipinfo.io/{domain}/json')
-
-    if ip_response.status_code == 200:
-        ip_data = ip_response.json()
-        return {
-            "ip": ip_data.get("ip"),
-            "city": ip_data.get("city"),
-            "region": ip_data.get("region"),
-            "country": ip_data.get("country"),
-            "org": ip_data.get("org"),
-        }
-    else:
+def get_ip_from_domain(url):
+    try:
+        parsed_uri = urlparse(url)
+        domain = '{uri.netloc}'.format(uri=parsed_uri)
+        ip_address = socket.gethostbyname(domain)
+        return ip_address
+    except socket.gaierror:
         return None
+def get_website_location(ip_address):
+    # 需要使用MaxMind GeoLite2数据库的路径
+    if ip_address is None:
+        return None
+    reader = geoip2.database.Reader('./tool/GeoLite2-City.mmdb')
+
+    try:
+        response = reader.city(ip_address)
+        return {
+            "ip": ip_address,
+            "city": response.city.name,
+            "region": response.subdivisions.most_specific.name,
+            "country": response.country.name,
+            "latitude": response.location.latitude,
+            "longitude": response.location.longitude,
+        }
+    except geoip2.errors.AddressNotFoundError:
+        return None
+    finally:
+        reader.close()
 def extract_contact_info(text):
     # 正则表达式用于提取电子邮件和电话号码
     email_pattern = re.compile(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}')
@@ -235,19 +259,17 @@ def save_to_database(keyword, url, email, phone, category,location,gl,lr):
     """保存提取到的数据到 MySQL 数据库"""
     global db_connection
     try:
-        currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        md5 = tool.encry.generate_md5(url + email)
+        # currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # md5 = tool.encry.generate_md5(url + email)
         db_connection = DatabaseConnection()
-        sql = f"select * from search_contact where md5 = :md6 limit 1"
-        isExists = db_connection.execute_query(sql, {"md6":md5},False)
-        if isExists:
-            sql = "update search_contact set email=:email ,phone=:phone ,update_time=:update_time ,location=:location,gl=:gl,lr=:lr where md5=:md5"
-            db_connection.update_record(sql, {"email":email, "phone":phone, "update_time":currentTime, "md5":md5,"location":location, "gl":gl, "lr":lr})
+        if  len(email) > 0:
+            isExists = model.search_contact.search_contact_query(email)
+            if isExists:
+                model.search_contact.search_contact_update(keyword, url, email, phone, category, location, gl, lr)
+            else:
+                model.search_contact.search_contact_save(keyword, url, email, phone, category,location,gl,lr)
         else:
-            sql = ("INSERT INTO search_contact (keyword,url, email, phone,category,create_time,md5,location,gl,lr) "
-                   "VALUES (:keyword,:url, :email, :phone,:category,:create_time,:md5,:location,:gl,:lr)")
-            insert_params={"keyword":keyword, "url":url, "email":email, "phone":phone, "category":category, "create_time":currentTime, "md5":md5,"location":location, "gl":gl, "lr":lr}
-            db_connection.insert_record(sql, insert_params)
+            model.search_contact.search_contact_save(keyword, url, email, phone, category,location,gl,lr)
 
     except Error as e:
         print(f"数据库错误: {e}")

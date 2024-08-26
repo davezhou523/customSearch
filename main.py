@@ -1,7 +1,8 @@
 import requests
 import re
-
+from urllib.parse import urlparse
 import google.google_search
+import model.search_contact
 from config.config import ConfigLoader
 from db.connect import DatabaseConnection
 from selenium import webdriver
@@ -57,8 +58,12 @@ def main():
     # print(f"找到的电子邮件: {all_emails}")
     # print(f"找到的电话号码: {all_phones}")
 
+    # res= model.search_contact.search_contact_query("cdsafety@cumc.columbia.edu")
+    # print(res)
     google.google_search.run()
-    # google.google_search.extract_contact_info_from_url(url)
+    # url = "https://pdihc.com/products/environment-of-care/super-sani-cloth-germicidal-disposable-wipe/"
+
+    # print(google.google_search.get_ip_from_domain(url))
 
 
 if __name__ == '__main__':
