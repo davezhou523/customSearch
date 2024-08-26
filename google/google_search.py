@@ -34,12 +34,12 @@ def run():
         'disposable gloves contact email phone '
         '-site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw'
     )
-    glList=model.ggl.google_gl_query(1)
-    for gl in glList:
+    glListAll=model.ggl.google_gl_query_all(1)
+    for glData in glListAll:
+        gl=glData.code
         num = 10  # 限制数量10条
         start_page = 0 #免费搜索限制100页
         record = 0
-        count=0
         while True:
             # ': gl,  # 最终用户的地理位置，可以根据需要更改
             # 'lr': lr  # 搜索结果语言
@@ -86,9 +86,7 @@ def run():
                 else:
                     save_to_database(query, url, ",".join(all_emails), ",".join(all_phones), 2,location_json,gl,lr)
             print(f"start_page is {start_page}")
-            count=count+1
-            if count >= 100:
-                break
+
 
 
 def get_search_results(query, num, startPage=1, gl="us", lr=""):

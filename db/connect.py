@@ -110,9 +110,9 @@ class DatabaseConnection(metaclass=SingletonMeta):
                 result = session.execute(sql_query, params)
 
             if fetch_all:
-                return result.fetchall()
+                return result.mappings().fetchall()
             else:
-                return result.fetchone()
+                return result.mappings().fetchone()
         except SQLAlchemyError as e:
             print(f"Database error: {e}")
         finally:

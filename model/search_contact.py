@@ -28,6 +28,6 @@ def search_contact_save(keyword, url, email, phone, category,location,gl,lr):
 def search_contact_update(keyword, url, email, phone, category,location,gl,lr):
     currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     md5 = tool.encry.generate_md5(url + email)
-    sql = "update search_contact set email=:email ,phone=:phone ,update_time=:update_time ,location=:location,gl=:gl,lr=:lr where md5=:md5"
+    sql = "update search_contact set email=:email ,phone=:phone ,update_time=:update_time ,location=:location,gl=:gl,lr=:lr where email=:email"
     db_connection.update_record(sql, {"email": email, "phone": phone, "update_time": currentTime, "md5": md5,
                                       "location": location, "gl": gl, "lr": lr})
