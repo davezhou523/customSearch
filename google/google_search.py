@@ -8,6 +8,7 @@ import mysql.connector
 from mysql.connector import Error
 
 import model.search_contact
+import model.ggl
 from db.connect import DatabaseConnection
 from urllib.parse import urljoin, urlparse
 import tool.encry
@@ -33,64 +34,61 @@ def run():
         'disposable gloves contact email phone '
         '-site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw'
     )
-    num = 10  # 限制数量10条
-    start_page = 0 #免费搜索限制100页
-    record = 0
-    count=0
-    while True:
+    glList=model.ggl.google_gl_query(1)
+    for gl in glList:
+        num = 10  # 限制数量10条
+        start_page = 0 #免费搜索限制100页
+        record = 0
+        count=0
+        while True:
+            # ': gl,  # 最终用户的地理位置，可以根据需要更改
+            # 'lr': lr  # 搜索结果语言
+            lr = ""
+            results = get_search_results(query, num, start_page,gl,lr)
+            if len(results) == 0:
+                break
+            start_page = start_page + num
+            for result in results:
+                title = result.get('title')
+                snippet = result.get('snippet')
+                url = result.get('link')
+                # 提取联系信息
+                # emails, phones = extract_contact_info(snippet)
+                # 从结果中提取电子邮件和电话号码
+                all_emails = set()
+                all_phones = set()
+                emails, phones = crawl_website(url)
+                all_emails.update(emails)
+                all_phones.update(phones)
 
-        # ': gl,  # 最终用户的地理位置，可以根据需要更改
-        # 'lr': lr  # 搜索结果语言
-
-        gl = ""
-        # lr = "al"
-        # lr = "dz"
-        lr = "as"
-        results = get_search_results(query, num, start_page,gl,lr)
-        if len(results) == 0:
-            break
-        start_page = start_page + num
-        for result in results:
-            title = result.get('title')
-            snippet = result.get('snippet')
-            url = result.get('link')
-            # 提取联系信息
-            # emails, phones = extract_contact_info(snippet)
-            # 从结果中提取电子邮件和电话号码
-            all_emails = set()
-            all_phones = set()
-            emails, phones = crawl_website(url)
-            all_emails.update(emails)
-            all_phones.update(phones)
-
-            print(f'Title: {title}')
-            print(f'url: {url}')
-            print(f"找到的电子邮件: {all_emails}")
-            print(f"找到的电话号码: {all_phones}")
-            location_info = get_website_location(get_ip_from_domain(url))
+                print(f'Title: {title}')
+                print(f'url: {url}')
+                print(f"找到的电子邮件: {all_emails}")
+                print(f"找到的电话号码: {all_phones}")
+                location_info = get_website_location(get_ip_from_domain(url))
 
 
-            # 将字典转换为 JSON 字符串
-            location_json = json.dumps(location_info)
-            if location_info:
-                print(f"IP Address: {location_info['ip']}")
-                print(f"City: {location_info['city']}")
-                print(f"Region: {location_info['region']}")
-                print(f"Country: {location_info['country']}")
+                # 将字典转换为 JSON 字符串
+                location_json = json.dumps(location_info)
+                if location_info:
+                    print(f"IP Address: {location_info['ip']}")
+                    print(f"City: {location_info['city']}")
+                    print(f"Region: {location_info['region']}")
+                    print(f"Country: {location_info['country']}")
 
-            print('-' * 40)
-            record += 1
-            print(f" 条数:{record}")
-            if len(all_emails) > 0:
-                for email in all_emails:
-                    email=convert_email_domain_to_lowercase(email)
-                    save_to_database(query, url, email, ",".join(all_phones), 2,location_json,gl,lr)
-            else:
-                save_to_database(query, url, ",".join(all_emails), ",".join(all_phones), 2,location_json,gl,lr)
-        print(f"start_page is {start_page}")
-        count=count+1
-        if count >= 100:
-            break
+                print('-' * 40)
+                record += 1
+                print(f" 条数:{record}")
+                if len(all_emails) > 0:
+                    for email in all_emails:
+                        email=convert_email_domain_to_lowercase(email)
+                        save_to_database(query, url, email, ",".join(all_phones), 2,location_json,gl,lr)
+                else:
+                    save_to_database(query, url, ",".join(all_emails), ",".join(all_phones), 2,location_json,gl,lr)
+            print(f"start_page is {start_page}")
+            count=count+1
+            if count >= 100:
+                break
 
 
 def get_search_results(query, num, startPage=1, gl="us", lr=""):
