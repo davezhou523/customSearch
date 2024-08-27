@@ -8,7 +8,38 @@
         "previousPage": [
             {
                 "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "totalResults": "69300000",
+                "totalResults": "69100000",
+                "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
+                "count": 10,
+                "inputEncoding": "utf8",
+                "outputEncoding": "utf8",
+                "safe": "off",
+                "cx": "45f1e3f35c4214993",
+                "gl": "au",
+                "siteSearch": "gloves.com",
+                "siteSearchFilter": "e"
+            }
+        ],
+        "request": [
+            {
+                "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
+                "totalResults": "69100000",
+                "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
+                "count": 10,
+                "startIndex": 10,
+                "inputEncoding": "utf8",
+                "outputEncoding": "utf8",
+                "safe": "off",
+                "cx": "45f1e3f35c4214993",
+                "gl": "au",
+                "siteSearch": "gloves.com",
+                "siteSearchFilter": "e"
+            }
+        ],
+        "nextPage": [
+            {
+                "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
+                "totalResults": "69100000",
                 "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
                 "count": 10,
                 "startIndex": 20,
@@ -16,35 +47,9 @@
                 "outputEncoding": "utf8",
                 "safe": "off",
                 "cx": "45f1e3f35c4214993",
-                "gl": "as"
-            }
-        ],
-        "request": [
-            {
-                "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "totalResults": "69300000",
-                "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "count": 10,
-                "startIndex": 30,
-                "inputEncoding": "utf8",
-                "outputEncoding": "utf8",
-                "safe": "off",
-                "cx": "45f1e3f35c4214993",
-                "gl": "as"
-            }
-        ],
-        "nextPage": [
-            {
-                "title": "Google Custom Search - disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "totalResults": "69300000",
-                "searchTerms": "disposable gloves contact email phone -site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw",
-                "count": 10,
-                "startIndex": 40,
-                "inputEncoding": "utf8",
-                "outputEncoding": "utf8",
-                "safe": "off",
-                "cx": "45f1e3f35c4214993",
-                "gl": "as"
+                "gl": "au",
+                "siteSearch": "gloves.com",
+                "siteSearchFilter": "e"
             }
         ]
     },
@@ -52,432 +57,1005 @@
         "title": "glove"
     },
     "searchInformation": {
-        "searchTime": 0.183793,
-        "formattedSearchTime": "0.18",
-        "totalResults": "69300000",
-        "formattedTotalResults": "69,300,000"
+        "searchTime": 0.231768,
+        "formattedSearchTime": "0.23",
+        "totalResults": "69100000",
+        "formattedTotalResults": "69,100,000"
     },
     "items": [
         {
             "kind": "customsearch#result",
-            "title": "Product: Gloveworks RDT Orange Nitrile PF Ind Gloves",
-            "htmlTitle": "Product: Gloveworks RDT Orange <b>Nitrile</b> PF Ind <b>Gloves</b>",
-            "link": "https://order.ammex.com/s/product/gloveworks-rdt-orange-nitrile-pf-ind-gloves/01t5w00000DrhqPAAR",
-            "displayLink": "order.ammex.com",
-            "snippet": "Call AMMEX now! Phone: 1-800-274-7354 or email us at AmmexHelp@Ammex.com · IP and Branding Guidelines | Terms & Conditions of Sale | Privacy Policy | Website ...",
-            "htmlSnippet": "<b>Call</b> AMMEX now! <b>Phone</b>: 1-800-274-7354 or <b>email</b> us at AmmexHelp@Ammex.com &middot; IP and Branding Guidelines | Terms &amp; Conditions of Sale | Privacy Policy | Website&nbsp;...",
-            "formattedUrl": "https://order.ammex.com/s/product/...pf...gloves/01t5w00000DrhqPAAR",
-            "htmlFormattedUrl": "https://order.ammex.com/s/product/...pf...<b>gloves</b>/01t5w00000DrhqPAAR",
+            "title": "Contact Us – Eco Gloves",
+            "htmlTitle": "<b>Contact</b> Us – Eco <b>Gloves</b>",
+            "link": "https://ecogloves.co/pages/contact-us",
+            "displayLink": "ecogloves.co",
+            "snippet": "Contact Eco Gloves for all your disposable glove needs. Our dedicated team is ready to help you with any questions regarding our sustainable and ...",
+            "htmlSnippet": "<b>Contact</b> Eco Gloves for all your <b>disposable glove</b> needs. Our dedicated team is ready to <b>help</b> you with any questions regarding our sustainable and&nbsp;...",
+            "formattedUrl": "https://ecogloves.co/pages/contact-us",
+            "htmlFormattedUrl": "https://eco<b>gloves</b>.co/pages/<b>contact</b>-us",
             "pagemap": {
-                "cse_thumbnail": [
-                    {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3175fTZVE_IRGGm4_F3waHy8J9iKwQEH6sVLLuPR8Kx7PaPuYZSYCDOwf&s",
-                        "width": "225",
-                        "height": "225"
-                    }
-                ],
                 "metatags": [
                     {
-                        "viewport": "initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, minimal-ui"
-                    }
-                ],
-                "cse_image": [
-                    {
-                        "src": "https://order.ammex.com/cms/delivery/media/MCPR4PWT2E75FRJC65E7WNEJH5VE?recordId=01t5w00000DrhqP&language=en_US&buyerId=3K05w0000004C93"
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "customsearch#result",
-            "title": "Contact Us",
-            "htmlTitle": "<b>Contact</b> Us",
-            "link": "https://bossgloves.com/contact",
-            "displayLink": "bossgloves.com",
-            "snippet": "... information, comment or question below, someone will get back to you promptly. CONTACT US. Boss Gloves Contact our Customer Service Representatives via phone/ ...",
-            "htmlSnippet": "... <b>information</b>, comment or question below, someone will get back to you promptly. <b>CONTACT</b> US. Boss <b>Gloves Contact</b> our <b>Customer Service</b> Representatives via <b>phone</b>/&nbsp;...",
-            "formattedUrl": "https://bossgloves.com/contact",
-            "htmlFormattedUrl": "https://boss<b>gloves</b>.com/<b>contact</b>",
-            "pagemap": {
-                "cse_thumbnail": [
-                    {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNi24nSt4dqx8uPXr3xCvHp7Kb5YfQlXEboj47hvqq6Mgv2Dma-SpGRfU&s",
-                        "width": "289",
-                        "height": "175"
-                    }
-                ],
-                "metatags": [
-                    {
-                        "viewport": "width=device-width, initial-scale=1",
-                        "csrf-token": "dfLdkEUPTKpOmVnnClnUyHOw5YMKEIXI9v6bhHfd"
-                    }
-                ],
-                "cse_image": [
-                    {
-                        "src": "https://bossgloves.com/images/boss-logo.svg"
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "customsearch#result",
-            "title": "Dangers of Latex, Nitrile and Vinyl Gloves to Epileptics | Epilepsy ...",
-            "htmlTitle": "Dangers of <b>Latex</b>, <b>Nitrile</b> and Vinyl <b>Gloves</b> to Epileptics | Epilepsy ...",
-            "link": "https://www.epilepsy.com/connect/forum-archive/share-your-story/dangers-latex-nitrile-and-vinyl-gloves-epileptics",
-            "displayLink": "www.epilepsy.com",
-            "snippet": "Mar 9, 2020 ... The information on these pages should not be substituted for medical advice from a healthcare provider. Experiences with epilepsy can vary ...",
-            "htmlSnippet": "Mar 9, 2020 <b>...</b> The <b>information</b> on these pages should not be substituted for medical advice from a healthcare provider. Experiences with epilepsy can vary&nbsp;...",
-            "formattedUrl": "https://www.epilepsy.com/.../dangers-latex-nitrile-and-vinyl-gloves-epilepti...",
-            "htmlFormattedUrl": "https://www.epilepsy.com/.../dangers-latex-nitrile-and-vinyl-<b>gloves</b>-epilepti...",
-            "pagemap": {
-                "cse_thumbnail": [
-                    {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR96pWX8prtqDenqpP_UgrLYdt25fQ257AU1ZMNbq2J3ko0DOYexgpbKiE&s",
-                        "width": "310",
-                        "height": "163"
-                    }
-                ],
-                "Comment": [
-                    {
-                        "text": "Hi,Thank you for sharing your story, it sounds like you’ve been through a lot. As you mentioned seizures and triggers can take on many different forms and affect different people in different..."
-                    },
-                    {
-                        "text": "Most antibiotics will drop me into straight grand mall seizures and I had brain surgery but went into 7 of them due to the infections and low immune system and not having a big choice of antibiotic..."
-                    }
-                ],
-                "thumbnail": [
-                    {
-                        "src": "https://www.epilepsy.com/sites/default/files/upload/image/OG_forum_post.jpg"
-                    }
-                ],
-                "metatags": [
-                    {
-                        "og:image": "http://www.epilepsy.com/sites/default/files/upload/image/OG_forum_post.jpg",
-                        "og:type": "Website",
-                        "og:image:width": "1200",
-                        "twitter:card": "summary_large_image",
-                        "twitter:title": "Dangers of Latex, Nitrile and Vinyl Gloves to Epileptics",
-                        "thumbnail": "https://www.epilepsy.com/sites/default/files/upload/image/OG_forum_post.jpg",
-                        "og:site_name": "Epilepsy Foundation",
-                        "og:image:url": "http://www.epilepsy.com/sites/default/files/upload/image/OG_forum_post.jpg",
-                        "handheldfriendly": "true",
-                        "twitter:url": "https://www.epilepsy.com/connect/forum-archive/share-your-story/dangers-latex-nitrile-and-vinyl-gloves-epileptics",
-                        "og:title": "Dangers of Latex, Nitrile and Vinyl Gloves to Epileptics",
-                        "og:image:height": "630",
-                        "twitter:image:height": "630",
-                        "abstract": "As an epileptic, we all know what would trigger my seizures may or may not apply to you, so keep this in mind as you read on. I would also like to say that, though I'm an epileptic, I'm not on any AEDs nor any other prescribed drugs, and had only taken Phenobarbital for an extremely short time in early childhood due to tonic-clonic events.",
-                        "og:description": "As an epileptic, we all know what would trigger my seizures may or may not apply to you, so keep this in mind as you read on. I would also like to say that, though I'm an epileptic, I'm not on any AEDs nor any other prescribed drugs, and had only taken Phenobarbital for an extremely short time in early childhood due to tonic-clonic events.",
-                        "og:image:secure_url": "https://www.epilepsy.com/sites/default/files/upload/image/OG_forum_post.jpg",
-                        "twitter:image": "https://www.epilepsy.com/sites/default/files/upload/image/OG_forum_post.jpg",
-                        "twitter:site": "@epilepsyfdn",
-                        "twitter:image:width": "1200",
-                        "viewport": "width=device-width, initial-scale=1.0",
-                        "twitter:description": "As an epileptic, we all know what would trigger my seizures may or may not apply to you, so keep this in mind as you read on. I would also like to say that, though I'm an epileptic, I'm not on any",
-                        "mobileoptimized": "width",
-                        "og:url": "https://www.epilepsy.com/connect/forum-archive/share-your-story/dangers-latex-nitrile-and-vinyl-gloves-epileptics"
-                    }
-                ],
-                "cse_image": [
-                    {
-                        "src": "https://www.epilepsy.com/sites/default/files/upload/image/OG_forum_post.jpg"
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "customsearch#result",
-            "title": "Contact us",
-            "htmlTitle": "<b>Contact</b> us",
-            "link": "https://www.cardinalhealth.com/en/about-us/contact-us.html",
-            "displayLink": "www.cardinalhealth.com",
-            "snippet": "Physicians or teaching hospitals that have a question about the information filed by Cardinal Health pursuant to the requirements of the Physician Payment ...",
-            "htmlSnippet": "Physicians or teaching hospitals that have a question about the <b>information</b> filed by Cardinal Health pursuant to the requirements of the Physician Payment&nbsp;...",
-            "formattedUrl": "https://www.cardinalhealth.com/en/about-us/contact-us.html",
-            "htmlFormattedUrl": "https://www.cardinalhealth.com/en/about-us/<b>contact</b>-us.html",
-            "pagemap": {
-                "cse_thumbnail": [
-                    {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMWrRUSVlD9twK0eF3WrUrzDCH1QMrOLOCkushduxhM4asfUuotTCILqXw&s",
-                        "width": "325",
-                        "height": "155"
-                    }
-                ],
-                "metatags": [
-                    {
-                        "og:image": "https://www.cardinalhealth.com/content/dam/corp/web/images/search-engine/search-AboutUs.jpg",
+                        "og:image": "https://cdn.shopify.com/s/files/1/0260/2221/5742/files/Cover_Image_1920x1080_2.png?v=1661552468",
+                        "theme-color": "#78cdd2",
                         "og:type": "website",
-                        "msvalidate.01": "4332B96C31E9060BB755CB48FB8B53E5",
-                        "search-result-image": "/content/dam/corp/web/images/search-engine/search-AboutUs.jpg",
-                        "og:title": "Contact us",
-                        "cat_level1": "About us",
-                        "cat_level2": "Contact us",
-                        "locale": "en_us",
-                        "og:description": "We help pharmacies, hospitals, ambulatory surgery centers, clinical laboratories and physician offices focus on patient care while reducing costs, enhancing efficiency and improving quality.",
-                        "facebook-domain-verification": "9hp1koylt3auu1kpi292hli8c2c4hu",
-                        "edit-date": "03/25/2024",
-                        "referrer": "no-referrer-when-downgrade",
-                        "create-date": "09/22/2021",
-                        "viewport": "width=device-width, initial-scale=1",
-                        "og:url": "https://www.cardinalhealth.com/en/about-us/contact-us.html"
-                    }
-                ],
-                "cse_image": [
-                    {
-                        "src": "https://www.cardinalhealth.com/content/dam/corp/web/images/search-engine/search-AboutUs.jpg"
-                    }
-                ],
-                "listitem": [
-                    {
-                        "item": "Home",
-                        "name": "cardinalhealth.com",
-                        "position": "1"
-                    },
-                    {
-                        "item": "About us",
-                        "name": "About us",
-                        "position": "2"
-                    },
-                    {
-                        "item": "https://www.cardinalhealth.com/en/about-us/contact-us.html",
-                        "name": "Contact us",
-                        "position": "3"
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "customsearch#result",
-            "title": "Hologic Support - Contact Info, Technical & Product Support",
-            "htmlTitle": "Hologic <b>Support</b> - <b>Contact</b> Info, Technical &amp; Product <b>Support</b>",
-            "link": "https://www.hologic.com/support",
-            "displayLink": "www.hologic.com",
-            "snippet": "Learn how to get support for Hologic products. Find contact information, technical and applications support, ordering support, product manuals & documents.",
-            "htmlSnippet": "Learn how to get <b>support</b> for Hologic products. Find <b>contact information</b>, technical and applications <b>support</b>, ordering <b>support</b>, product manuals &amp; documents.",
-            "formattedUrl": "https://www.hologic.com/support",
-            "htmlFormattedUrl": "https://www.hologic.com/support",
-            "pagemap": {
-                "cse_thumbnail": [
-                    {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU-ISPPHCEVz8Zqg6F8kcyrQRrlbpEYQYgnI3zXV0d81cDmGRMzNwuH80&s",
-                        "width": "400",
-                        "height": "126"
-                    }
-                ],
-                "metatags": [
-                    {
-                        "og:type": "Hologic Support - Contact Info, Technical & Product Support",
-                        "og:image:alt": "Hologic Corporate Website",
                         "twitter:card": "summary_large_image",
-                        "twitter:title": "Hologic Global Product Support and Contact Information",
-                        "og:image:url": "https://www.hologic.com/sites/default/files/default-metatag-image.png",
-                        "handheldfriendly": "true",
-                        "twitter:url": "https://www.hologic.com/",
-                        "msvalidate.01": "34D566CDC364AE4DE8686A8E5B21C611",
-                        "og:description": "Learn how to get support for Hologic products. Find contact information, technical and applications support, ordering support, product manuals & documents.",
-                        "twitter:creator": "@hologic",
-                        "twitter:image": "https://www.hologic.com/sites/default/files/default-metatag-image.jpg",
-                        "twitter:image:alt": "Hologic Corporate Website",
-                        "twitter:site": "@hologic",
-                        "news_keywords": "Hologic",
-                        "viewport": "width=device-width, initial-scale=1.0",
-                        "twitter:description": "Learn how to get support for Hologic products. Find contact information, technical and applications support, ordering support, product manuals & documents.",
-                        "mobileoptimized": "width",
-                        "og:url": "https://www.hologic.com/support"
+                        "twitter:title": "Contact Us",
+                        "og:image:width": "1920",
+                        "og:site_name": "Eco Gloves",
+                        "og:title": "Contact Us",
+                        "shopify-checkout-api-token": "d5a3c6db463855e6ecdf8a0309ca7dbc",
+                        "og:image:height": "1080",
+                        "og:description": "Contact Eco Gloves for all your disposable glove needs. Our dedicated team is ready to help you with any questions regarding our sustainable and high-quality gloves. We offer bulk discounts, custom quotes, fast & free shipping, and satisfaction guarantee!",
+                        "og:image:secure_url": "https://cdn.shopify.com/s/files/1/0260/2221/5742/files/Cover_Image_1920x1080_2.png?v=1661552468",
+                        "facebook-domain-verification": "68uvz77bn3wx3dbomtasdqyanptypa",
+                        "fb:app_id": "428022556901509",
+                        "twitter:site": "@ecogloves",
+                        "viewport": "width=device-width,initial-scale=1",
+                        "twitter:description": "Contact Eco Gloves for all your disposable glove needs. Our dedicated team is ready to help you with any questions regarding our sustainable and high-quality gloves. We offer bulk discounts, custom quotes, fast & free shipping, and satisfaction guarantee!",
+                        "shopify-digital-wallet": "/26022215742/digital_wallets/dialog",
+                        "og:url": "https://ecogloves.co/pages/contact-us"
                     }
                 ],
                 "cse_image": [
                     {
-                        "src": "https://www.hologic.com/sites/default/files/styles/convert_to_webp/public/corporate/hologic_desktop2.png.webp?itok=VOyX9WoB"
+                        "src": "https://cdn.shopify.com/s/files/1/0260/2221/5742/files/Cover_Image_1920x1080_2.png?v=1661552468"
                     }
                 ]
             }
         },
         {
             "kind": "customsearch#result",
-            "title": "Kimtech™ Purple Nitrile™ Exam Gloves (55081), 5.9 Mil ...",
-            "htmlTitle": "Kimtech™ Purple <b>Nitrile</b>™ Exam <b>Gloves</b> (55081), 5.9 Mil ...",
-            "link": "https://www.kcprofessional.com/en-us/products/scientific-and-research/lab-environment/hand-protection-and-gloves/kimtech%E2%84%A2-purple-nitrile%E2%84%A2-exam-gloves/55081",
-            "displayLink": "www.kcprofessional.com",
-            "snippet": "Kimtech™ is your partner in driving progress. As part of Kimberly Clark's 150-year-old legacy of innovation and partnership with the ...",
-            "htmlSnippet": "Kimtech™ is your partner in driving progress. As part of Kimberly Clark&#39;s 150-year-old legacy of innovation and partnership with the&nbsp;...",
-            "formattedUrl": "https://www.kcprofessional.com/en-us/...and...gloves/...gloves/55081",
-            "htmlFormattedUrl": "https://www.kcprofessional.com/en-us/...and...<b>gloves</b>/...<b>gloves</b>/55081",
+            "title": "glove-use-information-leaflet.pdf",
+            "htmlTitle": "<b>glove</b>-use-<b>information</b>-leaflet.pdf",
+            "link": "https://cdn.who.int/media/docs/default-source/integrated-health-services-(ihs)/infection-prevention-and-control/hand-hygiene/tools/glove-use-information-leaflet.pdf?sfvrsn=13670aa_10",
+            "displayLink": "cdn.who.int",
+            "snippet": "Medical gloves are defined as disposable gloves used during medical procedures; they include: 1. Examination gloves (non sterile or sterile). 2. Surgical ...",
+            "htmlSnippet": "Medical gloves are defined as <b>disposable gloves</b> used during medical procedures; they include: 1. Examination gloves (non sterile or sterile). 2. Surgical&nbsp;...",
+            "formattedUrl": "https://cdn.who.int/media/.../glove-use-information-leaflet.pdf?...",
+            "htmlFormattedUrl": "https://cdn.who.int/media/.../glove-use-information-leaflet.pdf?...",
             "pagemap": {
                 "cse_thumbnail": [
                     {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrpESaCrJbELfB9GQJmRyb_e13FNuaGzqLnzTR-6arvUWG-FhPOXQIlsCo&s",
-                        "width": "225",
-                        "height": "225"
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNtVcLTSqeh6atT4t9oMRxKAEd6sXVfpUSuDNAN9ySDbzdEYWmuKH5mJBr&s",
+                        "width": "190",
+                        "height": "265"
                     }
                 ],
                 "metatags": [
                     {
-                        "og:image": "https://www.contenthubext.kimberly-clark.com/ePIM/ImageStore/public/202831062_m.jpg",
-                        "og:type": "website",
-                        "twitter:card": "summary",
-                        "twitter:title": "Kimtech™ Purple Nitrile™ Exam Gloves (55081), 5.9 Mil, Ambidextrous, 9.5\", S (100 Gloves/Box, 10 Boxes/Case, 1,000 Gloves/Case)",
-                        "og:site_name": "KC Professional",
-                        "og:title": "Kimtech™ Purple Nitrile™ Exam Gloves (55081), 5.9 Mil, Ambidextrous, 9.5\", S (100 Gloves/Box, 10 Boxes/Case, 1,000 Gloves/Case)",
-                        "og:description": "Kimtech™ is your partner in driving progress. As part of Kimberly Clark's 150-year-old legacy of innovation and partnership with the scientific community, we're proud to offer Kimtech™ Purple Nitrile Exam Gloves. These purple nitrile gloves guard against incidental splashes, are made of a highly durable nitrile polymer and are powder free and not made with natural rubber latex (some say “latex free\"). The ambidextrous gloves are available in 9.5\" and 12\" (Nitrile-Xtra™) lengths, are available in various sizes and have a beaded cuff for easy donning. Your workers will enjoy excellent dexterity and tactile sensitivity, thanks to the textured fingertips. They are even cleared for use in chemotherapy. When users see the distinctive purple color, they can have confidence in their own protection. These purple nitrile exam gloves can be diverted from the landfill through The RightCycle™ Program by Kimberly-Clark Professional™. It's easy to see why Kimtech™ Purple Nitrile Gloves are the choice of leadi",
-                        "facebook-domain-verification": "6ndfwcrvdvcxjmtrqir2y4y19b2np6",
-                        "og:locale:alternate": "en",
-                        "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
-                        "twitter:description": "Kimtech™ is your partner in driving progress. As part of Kimberly Clark's 150-year-old legacy of innovation and partnership with the scientific community, we're proud to offer Kimtech™ Purple Nitrile Exam Gloves. These purple nitrile gloves guard against incidental splashes, are made of a highly durable nitrile polymer and are powder free and not made with natural rubber latex (some say “latex free\"). The ambidextrous gloves are available in 9.5\" and 12\" (Nitrile-Xtra™) lengths, are available in various sizes and have a beaded cuff for easy donning. Your workers will enjoy excellent dexterity and tactile sensitivity, thanks to the textured fingertips. They are even cleared for use in chemotherapy. When users see the distinctive purple color, they can have confidence in their own protection. These purple nitrile exam gloves can be diverted from the landfill through The RightCycle™ Program by Kimberly-Clark Professional™. It's easy to see why Kimtech™ Purple Nitrile Gloves are the choice of leadi",
-                        "og:locale": "en_US",
-                        "og:url": "https://www.kcprofessional.com/en-us/products/scientific-and-research/lab-environment/hand-protection-and-gloves/kimtech™-purple-nitrile™-exam-gloves/55081"
+                        "moddate": "D:20090831110642+02'00'",
+                        "creationdate": "D:20090831110639+02'00'",
+                        "creator": "Adobe InDesign CS4 (6.0.3)",
+                        "producer": "Adobe PDF Library 9.0"
                     }
                 ],
                 "cse_image": [
                     {
-                        "src": "https://www.kcprofessional.com/-/media/global/catalog/image-coming-soon.jpg"
+                        "src": "x-raw-image:///34f685243e445913b3671cefb3117b3561602a1ac8caa7085107b122129e9143"
                     }
                 ]
-            }
+            },
+            "mime": "application/pdf",
+            "fileFormat": "PDF/Adobe Acrobat"
         },
         {
             "kind": "customsearch#result",
-            "title": "Website Usage Policy - AMMEX - Your Glove Partner",
-            "htmlTitle": "Website Usage Policy - AMMEX - Your <b>Glove</b> Partner",
-            "link": "https://www.ammex.com/website-usage-policy/",
-            "displayLink": "www.ammex.com",
-            "snippet": "... Telephone Number: 800-274-7354, Email Address: customerservice@ammex.com. We reserve the right to revise these Terms at any time. As such, you should check ...",
-            "htmlSnippet": "... <b>Telephone</b> Number: 800-274-7354, <b>Email Address</b>: customerservice@ammex.com. We reserve the right to revise these Terms at any time. As such, you should check&nbsp;...",
-            "formattedUrl": "https://www.ammex.com/website-usage-policy/",
-            "htmlFormattedUrl": "https://www.ammex.com/website-usage-policy/",
+            "title": "Latex Allergy | Causes, Symptoms & Treatment | ACAAI Public Website",
+            "htmlTitle": "<b>Latex</b> Allergy | Causes, Symptoms &amp; Treatment | ACAAI Public Website",
+            "link": "https://acaai.org/allergies/allergic-conditions/latex-allergy/",
+            "displayLink": "acaai.org",
+            "snippet": "What products contain natural rubber latex? Latex is a common component of many medical and dental supplies. These include disposable gloves, dental dams, ...",
+            "htmlSnippet": "What products contain natural rubber latex? Latex is a common component of many medical and dental supplies. These include <b>disposable gloves</b>, dental dams,&nbsp;...",
+            "formattedUrl": "https://acaai.org/allergies/allergic-conditions/latex-allergy/",
+            "htmlFormattedUrl": "https://acaai.org/allergies/allergic-conditions/latex-allergy/",
             "pagemap": {
                 "cse_thumbnail": [
                     {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6JiYuQQDtaJ0yCdXlTnx1FjsgoMm-sbtp_MYfbJg3phtY06eTgr68WpNO&s",
-                        "width": "348",
-                        "height": "145"
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgcVSfe9wGyh9A5ELMex7Vtg2wLODN1zqm3zMwm-W9BtHp92ihYaje9t4&s=0",
+                        "width": "150",
+                        "height": "113"
+                    }
+                ],
+                "organization": [
+                    {
+                        "url": "https://acaai.org/",
+                        "sameas": "Twitter Channel"
                     }
                 ],
                 "metatags": [
                     {
-                        "og:image": "https://149902153.v2.pressablecdn.com/wp-content/uploads/2019/06/cropped-AMMEX-Logo.png",
+                        "og:image": "https://acaai.org/wp-content/uploads/2021/02/3dvisu-A4MkgsyXt1Q-unsplash-scaled-e1614291114346.jpg",
                         "og:type": "article",
-                        "og:image:width": "1865",
-                        "article:published_time": "2019-08-30T16:33:32+00:00",
+                        "og:image:width": "1920",
                         "twitter:card": "summary_large_image",
-                        "twitter:title": "Website Usage Policy - AMMEX - Your Glove Partner",
-                        "og:site_name": "AMMEX - Your Glove Partner - Grow Your Glove Sales",
-                        "og:title": "Website Usage Policy - AMMEX - Your Glove Partner",
-                        "og:image:height": "779",
-                        "msapplication-tileimage": "https://149902153.v2.pressablecdn.com/wp-content/uploads/2022/03/cropped-cropped-Ammex-01-270x270.png",
-                        "og:description": "WEBSITE USAGE POLICY WEBSITE USAGE POLICY Accessing this website: www.ammex.com (\"Site\") constitutes your agreement to the following Terms and Conditions (\"Terms\"). You are also representing to us that you are an authorized representative of the company for whom you work (the \"Company\") who has legal authority to sign contracts on its behalf. For purposes of",
-                        "og:image:secure_url": "https://149902153.v2.pressablecdn.com/wp-content/uploads/2019/06/cropped-AMMEX-Logo.png",
-                        "twitter:image": "https://149902153.v2.pressablecdn.com/wp-content/uploads/2019/06/cropped-AMMEX-Logo.png",
-                        "article:modified_time": "2021-10-21T18:17:33+00:00",
+                        "og:site_name": "ACAAI Patient",
+                        "apple-mobile-web-app-title": "American College of Allergy, Asthma, and Immunology",
+                        "og:title": "Latex Allergy | Causes, Symptoms & Treatment | ACAAI Public Website",
+                        "og:image:height": "1440",
+                        "twitter:label1": "Est. reading time",
+                        "og:image:type": "image/jpeg",
+                        "type": "website",
+                        "og:description": "Allergic reactions to latex may be serious and can very rarely be fatal. If you have latex allergy you should limit or avoid future exposure to latex products.",
+                        "article:publisher": "https://www.facebook.com/TheACAAI/",
+                        "twitter:image": "https://acaai.org/wp-content/uploads/2021/02/3dvisu-A4MkgsyXt1Q-unsplash-scaled-e1614291114346.jpg",
+                        "twitter:data1": "5 minutes",
+                        "url": "https://acaai.org/allergies/allergic-conditions/latex-allergy/",
+                        "twitter:site": "@ACAAI",
+                        "article:modified_time": "2022-04-13T19:58:48+00:00",
                         "viewport": "width=device-width, initial-scale=1",
-                        "twitter:description": "WEBSITE USAGE POLICY WEBSITE USAGE POLICY Accessing this website: www.ammex.com (\"Site\") constitutes your agreement to the following Terms and Conditions (\"Terms\"). You are also representing to us that you are an authorized representative of the company for whom you work (the \"Company\") who has legal authority to sign contracts on its behalf. For purposes of",
+                        "tagpages": "1.64",
                         "og:locale": "en_US",
-                        "og:url": "https://www.ammex.com/website-usage-policy/"
+                        "position": "1",
+                        "og:url": "https://acaai.org/allergies/allergic-conditions/latex-allergy/"
                     }
                 ],
                 "cse_image": [
                     {
-                        "src": "https://149902153.v2.pressablecdn.com/wp-content/uploads/2019/06/cropped-AMMEX-Logo.png"
+                        "src": "https://acaai.org/wp-content/uploads/2021/02/3dvisu-A4MkgsyXt1Q-unsplash-scaled-e1614291114346.jpg"
+                    }
+                ],
+                "sitenavigationelement": [
+                    {
+                        "url": "Español"
+                    },
+                    {
+                        "url": "About the ACAAI"
+                    },
+                    {
+                        "url": "Annual Scientific Meeting"
+                    },
+                    {
+                        "name": "Need an Allergist?",
+                        "url": "Need an Allergist?"
+                    },
+                    {
+                        "url": "What Does An Allergist Treat?"
+                    },
+                    {
+                        "url": "When To See an Allergist"
+                    },
+                    {
+                        "url": "Choosing an Allergist"
+                    },
+                    {
+                        "name": "Allergies",
+                        "url": "Allergies"
+                    },
+                    {
+                        "url": "Allergies 101"
+                    },
+                    {
+                        "url": "Who Gets Allergies?"
+                    },
+                    {
+                        "url": "Allergy Facts"
+                    },
+                    {
+                        "url": "Allergy Symptoms"
+                    },
+                    {
+                        "url": "Allergic Conditions"
+                    },
+                    {
+                        "url": "Food Allergy"
+                    },
+                    {
+                        "url": "Insect Sting Allergies"
+                    },
+                    {
+                        "url": "Drug Allergies"
+                    },
+                    {
+                        "url": "Pollen Allergies"
+                    },
+                    {
+                        "url": "Ragweed Allergy"
+                    },
+                    {
+                        "url": "Nasal Polyps"
+                    },
+                    {
+                        "url": "Eosinophilic Esophagitis"
+                    },
+                    {
+                        "url": "Skin Allergy"
+                    },
+                    {
+                        "url": "Pet Allergies"
+                    },
+                    {
+                        "url": "Hay Fever"
+                    },
+                    {
+                        "url": "Latex Allergy"
+                    },
+                    {
+                        "url": "Seasonal Allergies"
+                    },
+                    {
+                        "url": "Chlorine “Allergy”"
+                    },
+                    {
+                        "url": "Dust Allergies"
+                    },
+                    {
+                        "url": "Eye Allergy"
+                    },
+                    {
+                        "url": "Cockroach Allergy"
+                    },
+                    {
+                        "url": "Mold Allergies"
+                    },
+                    {
+                        "url": "Sinus Infection"
+                    },
+                    {
+                        "url": "Pine Tree “Allergy”"
+                    },
+                    {
+                        "url": "Meat Allergy"
+                    },
+                    {
+                        "url": "Testing & Diagnosis"
+                    },
+                    {
+                        "url": "Management & Treatment"
+                    },
+                    {
+                        "name": "Asthma",
+                        "url": "Asthma"
+                    },
+                    {
+                        "url": "Asthma 101"
+                    },
+                    {
+                        "url": "What Causes Asthma?"
+                    },
+                    {
+                        "url": "Who Gets Asthma?"
+                    },
+                    {
+                        "url": "Asthma Facts"
+                    },
+                    {
+                        "url": "Asthma Symptoms"
+                    },
+                    {
+                        "url": "Types of Asthma"
+                    },
+                    {
+                        "url": "Testing & Diagnosis"
+                    },
+                    {
+                        "url": "Treatment"
+                    },
+                    {
+                        "name": "Patient Resources",
+                        "url": "Patient Resources"
+                    },
+                    {
+                        "url": "Allergists Answering Questions"
+                    },
+                    {
+                        "url": "Articles"
+                    },
+                    {
+                        "url": "Ask the Allergist"
+                    },
+                    {
+                        "url": "Interactive Tools"
+                    },
+                    {
+                        "url": "Patient Support Organizations"
+                    },
+                    {
+                        "url": "Resources Library"
+                    },
+                    {
+                        "url": "Peanut Oral Immunotherapy (OIT)"
+                    },
+                    {
+                        "name": "Health Care Providers",
+                        "url": "Health Care Providers"
+                    },
+                    {
+                        "url": "Information for Nurse Practitioners and Physician Assistants"
+                    },
+                    {
+                        "url": "ACAAI Roundtable on Atopic Dermatitis and Food Allergy"
+                    },
+                    {
+                        "url": "Clinical Trial Resources"
+                    },
+                    {
+                        "name": "News",
+                        "url": "News"
+                    },
+                    {
+                        "name": "Find an Allergist",
+                        "url": "Find an Allergist"
+                    },
+                    {
+                        "url": "Need an Allergist?"
+                    },
+                    {
+                        "url": "What Does An Allergist Treat?"
+                    },
+                    {
+                        "url": "When To See an Allergist"
+                    },
+                    {
+                        "url": "Choosing an Allergist"
+                    },
+                    {
+                        "url": "Allergies"
+                    },
+                    {
+                        "url": "Allergies 101"
+                    },
+                    {
+                        "url": "Allergy Symptoms"
+                    },
+                    {
+                        "url": "Allergic Conditions"
+                    },
+                    {
+                        "url": "Testing & Diagnosis"
+                    },
+                    {
+                        "url": "Management & Treatment"
+                    },
+                    {
+                        "url": "Asthma"
+                    },
+                    {
+                        "url": "Asthma 101"
+                    },
+                    {
+                        "url": "Asthma Symptoms"
+                    },
+                    {
+                        "url": "Types of Asthma"
+                    },
+                    {
+                        "url": "Testing & Diagnosis"
+                    },
+                    {
+                        "url": "Treatment"
+                    },
+                    {
+                        "url": "Patient Resources"
+                    },
+                    {
+                        "url": "Allergists Answering Questions"
+                    },
+                    {
+                        "url": "Articles"
+                    },
+                    {
+                        "url": "Interactive Tools"
+                    },
+                    {
+                        "url": "Ask the Allergist"
+                    },
+                    {
+                        "url": "Patient Support Organizations"
+                    },
+                    {
+                        "url": "Health Care Providers"
+                    },
+                    {
+                        "url": "News"
+                    },
+                    {
+                        "url": "Need an Allergist?"
+                    },
+                    {
+                        "url": "What Does An Allergist Treat?"
+                    },
+                    {
+                        "url": "When To See an Allergist"
+                    },
+                    {
+                        "url": "Choosing an Allergist"
+                    },
+                    {
+                        "url": "Allergies"
+                    },
+                    {
+                        "url": "Allergies 101"
+                    },
+                    {
+                        "url": "Who Gets Allergies?"
+                    },
+                    {
+                        "url": "Allergy Facts"
+                    },
+                    {
+                        "url": "Allergy Symptoms"
+                    },
+                    {
+                        "url": "Allergic Conditions"
+                    },
+                    {
+                        "url": "Food Allergy"
+                    },
+                    {
+                        "url": "Insect Sting Allergies"
+                    },
+                    {
+                        "url": "Drug Allergies"
+                    },
+                    {
+                        "url": "Pollen Allergies"
+                    },
+                    {
+                        "url": "Ragweed Allergy"
+                    },
+                    {
+                        "url": "Nasal Polyps"
+                    },
+                    {
+                        "url": "Eosinophilic Esophagitis"
+                    },
+                    {
+                        "url": "Skin Allergy"
+                    },
+                    {
+                        "url": "Pet Allergies"
+                    },
+                    {
+                        "url": "Hay Fever"
+                    },
+                    {
+                        "url": "Latex Allergy"
+                    },
+                    {
+                        "url": "Seasonal Allergies"
+                    },
+                    {
+                        "url": "Chlorine “Allergy”"
+                    },
+                    {
+                        "url": "Dust Allergies"
+                    },
+                    {
+                        "url": "Eye Allergy"
+                    },
+                    {
+                        "url": "Cockroach Allergy"
+                    },
+                    {
+                        "url": "Mold Allergies"
+                    },
+                    {
+                        "url": "Sinus Infection"
+                    },
+                    {
+                        "url": "Pine Tree “Allergy”"
+                    },
+                    {
+                        "url": "Meat Allergy"
+                    },
+                    {
+                        "url": "Testing & Diagnosis"
+                    },
+                    {
+                        "url": "Management & Treatment"
+                    },
+                    {
+                        "url": "Asthma"
+                    },
+                    {
+                        "url": "Asthma 101"
+                    },
+                    {
+                        "url": "What Causes Asthma?"
+                    },
+                    {
+                        "url": "Who Gets Asthma?"
+                    },
+                    {
+                        "url": "Asthma Facts"
+                    },
+                    {
+                        "url": "Asthma Symptoms"
+                    },
+                    {
+                        "url": "Types of Asthma"
+                    },
+                    {
+                        "url": "Testing & Diagnosis"
+                    },
+                    {
+                        "url": "Treatment"
+                    },
+                    {
+                        "url": "Patient Resources"
+                    },
+                    {
+                        "url": "Allergists Answering Questions"
+                    },
+                    {
+                        "url": "Articles"
+                    },
+                    {
+                        "url": "Ask the Allergist"
+                    },
+                    {
+                        "url": "Interactive Tools"
+                    },
+                    {
+                        "url": "Patient Support Organizations"
+                    },
+                    {
+                        "url": "Resources Library"
+                    },
+                    {
+                        "url": "Peanut Oral Immunotherapy (OIT)"
+                    },
+                    {
+                        "url": "Health Care Providers"
+                    },
+                    {
+                        "url": "Information for Nurse Practitioners and Physician Assistants"
+                    },
+                    {
+                        "url": "ACAAI Roundtable on Atopic Dermatitis and Food Allergy"
+                    },
+                    {
+                        "url": "Clinical Trial Resources"
+                    },
+                    {
+                        "url": "News"
+                    },
+                    {
+                        "url": "Find an Allergist"
+                    },
+                    {
+                        "url": "Español"
+                    },
+                    {
+                        "url": "About the ACAAI"
+                    },
+                    {
+                        "url": "Annual Scientific Meeting"
                     }
                 ]
             }
         },
         {
             "kind": "customsearch#result",
-            "title": "Fact Sheet: Disposable Nitrile Gloves in Chemical Labs | PennEHRS",
-            "htmlTitle": "Fact Sheet: Disposable <b>Nitrile Gloves</b> in Chemical Labs | PennEHRS",
-            "link": "https://ehrs.upenn.edu/health-safety/lab-safety/chemical-hygiene-plan/fact-sheets/fact-sheet-disposable-nitrile-gloves",
-            "displayLink": "ehrs.upenn.edu",
-            "snippet": "May 15, 2023 ... Removing gloves carefully. Glove removal (or \"doffing\") must be done carefully to avoid contact with the outside of the glove. Always wash your ...",
-            "htmlSnippet": "May 15, 2023 <b>...</b> Removing <b>gloves</b> carefully. <b>Glove</b> removal (or &quot;doffing&quot;) must be done carefully to avoid <b>contact</b> with the outside of the <b>glove</b>. Always wash your&nbsp;...",
-            "formattedUrl": "https://ehrs.upenn.edu/health-safety/.../fact-sheet-disposable-nitrile-gloves",
-            "htmlFormattedUrl": "https://ehrs.upenn.edu/health-safety/.../fact-sheet-<b>disposable</b>-nitrile-<b>gloves</b>",
+            "title": "How can we help you? Contact Us",
+            "htmlTitle": "How can we <b>help</b> you? <b>Contact</b> Us",
+            "link": "https://info.ammex.com/sign-up/contact-us",
+            "displayLink": "info.ammex.com",
+            "snippet": "We help thousands of distributors, retailers, and buying group members just like you, grow their glove sales. · AMMEX is a global importer of disposable gloves ...",
+            "htmlSnippet": "We <b>help</b> thousands of distributors, retailers, and buying group members just like you, grow their glove sales. &middot; AMMEX is a global importer of <b>disposable gloves</b>&nbsp;...",
+            "formattedUrl": "https://info.ammex.com/sign-up/contact-us",
+            "htmlFormattedUrl": "https://info.ammex.com/sign-up/<b>contact</b>-us",
             "pagemap": {
-                "WebPage": [
+                "metatags": [
                     {
-                        "name": "Fact Sheet:  Disposable Nitrile Gloves in Chemical Labs ",
-                        "text": "Original version 12/2018, Revised 1/2019, 3/2019, 3/2021 Note: For the purpose of this Fact Sheet, the term \"disposable nitrile gloves\" refers to gloves that are one-time use and have a thickness..."
+                        "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Contact Us for Bulk Pricing on PPE Products | Sunline Supply",
+            "htmlTitle": "<b>Contact</b> Us for Bulk Pricing on PPE Products | Sunline Supply",
+            "link": "https://sunlinesupply.com/contact/",
+            "displayLink": "sunlinesupply.com",
+            "snippet": "... available. Monday - Friday, 9am - 5pm ET. Nitrile Glove Information. If contacting us regarding nitrile gloves, please use the nitrile glove contact form.",
+            "htmlSnippet": "... available. Monday - Friday, 9am - 5pm ET. <b>Nitrile Glove Information</b>. If contacting us regarding <b>nitrile gloves</b>, please use the <b>nitrile glove contact</b> form.",
+            "formattedUrl": "https://sunlinesupply.com/contact/",
+            "htmlFormattedUrl": "https://sunlinesupply.com/<b>contact</b>/",
+            "pagemap": {
+                "cse_thumbnail": [
+                    {
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSttXgR6Mpcedf7GAqgsNa8QpiN25-d1Jgxn8TjpIM5mdgVPkJqtBhVsfA&s",
+                        "width": "420",
+                        "height": "120"
+                    }
+                ],
+                "imageobject": [
+                    {
+                        "image": "https://sunlinesupply.com/wp-content/uploads/2020/06/Sunline_Supply_Logo-300x86.png",
+                        "url": "https://sunlinesupply.com/"
+                    },
+                    {
+                        "image": "https://sunlinesupply.com/wp-content/uploads/2023/03/US-FDA-Verified-Registration-for-2023-600x239.png",
+                        "url": "https://www.myfda.com/fda-md-reg/29e6771e0"
+                    }
+                ],
+                "organization": [
+                    {
+                        "url": "https://sunlinesupply.com/",
+                        "sameas": "https://www.facebook.com/sunlinesupplyppe/"
+                    },
+                    {
+                        "url": "https://sunlinesupply.com/",
+                        "sameas": "https://www.linkedin.com/company/sunlinesupply"
                     }
                 ],
                 "metatags": [
                     {
-                        "handheldfriendly": "true",
+                        "og:image": "https://sunlinesupply.com/wp-content/uploads/2020/06/Sunline_Supply_Logo.png",
+                        "og:type": "article",
+                        "og:image:width": "1286",
+                        "twitter:card": "summary_large_image",
+                        "og:site_name": "Sunline Supply",
+                        "msvalidate.01": "F3305F8D58587C99AF8DB1CDDBA3DD2E",
+                        "og:title": "Contact Us for Bulk Pricing on PPE Products | Sunline Supply",
+                        "og:image:height": "369",
+                        "twitter:label1": "Est. reading time",
+                        "og:image:type": "image/png",
+                        "msapplication-tileimage": "https://sunlinesupply.com/wp-content/uploads/2021/02/favicon-32x32-1.png",
+                        "og:description": "We offer nationwide delivery and bulk availability for essential PPE products such as masks, gloves, gowns and more. Contact us today for bulk pricing!",
+                        "article:publisher": "https://www.facebook.com/sunlinesupplyppe/",
+                        "twitter:data1": "1 minute",
+                        "facebook-domain-verification": "x1wsn0u0jizvdl3nxwq77zasbk1byn",
+                        "article:modified_time": "2022-06-14T14:26:58+00:00",
                         "viewport": "width=device-width, initial-scale=1.0",
-                        "mobileoptimized": "width"
+                        "og:locale": "en_US",
+                        "og:url": "https://sunlinesupply.com/contact/"
+                    }
+                ],
+                "webpage": [
+                    {
+                        "maincontentofpage": "Name* Company* Phone*Email* How Did You Hear About Sunline Supply? (i.e. Email Blast, Google Search)* Are you looking to purchase gloves? Nitrile Vinyl TPE If yes, please select a glove option..."
+                    }
+                ],
+                "creativework": [
+                    {
+                        "text": "Name* Company* Phone*Email* How Did You Hear About Sunline Supply? (i.e. Email Blast, Google Search)* Are you looking to purchase gloves? Nitrile Vinyl TPE If yes, please select a glove option..."
+                    }
+                ],
+                "cse_image": [
+                    {
+                        "src": "https://sunlinesupply.com/wp-content/uploads/2020/06/Sunline_Supply_Logo.png"
                     }
                 ]
             }
         },
         {
             "kind": "customsearch#result",
-            "title": "Contact PIP®",
-            "htmlTitle": "<b>Contact</b> PIP®",
-            "link": "https://us.pipglobal.com/en/contact-us/",
-            "displayLink": "us.pipglobal.com",
-            "snippet": "Controlled Environment · Construction Safety · Electrical Safety · Food Safety · Industrial Safety · Welding Safety ...",
-            "htmlSnippet": "Controlled Environment &middot; Construction Safety &middot; Electrical Safety &middot; Food Safety &middot; Industrial Safety &middot; Welding Safety&nbsp;...",
-            "formattedUrl": "https://us.pipglobal.com/en/contact-us/",
-            "htmlFormattedUrl": "https://us.pipglobal.com/en/<b>contact</b>-us/",
+            "title": "Biogel® Surgeons | Mölnlycke",
+            "htmlTitle": "Biogel® Surgeons | Mölnlycke",
+            "link": "https://www.molnlycke.us/products-solutions/biogel-surgeons/",
+            "displayLink": "www.molnlycke.us",
+            "snippet": "Sterile, powder-free, natural rubber latex surgical gloves for use in general surgical procedures.",
+            "htmlSnippet": "Sterile, powder-free, natural rubber <b>latex</b> surgical <b>gloves</b> for use in general surgical procedures.",
+            "formattedUrl": "https://www.molnlycke.us/products-solutions/biogel-surgeons/",
+            "htmlFormattedUrl": "https://www.molnlycke.us/products-solutions/biogel-surgeons/",
             "pagemap": {
                 "cse_thumbnail": [
                     {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgjY-_s00_N_t0oLO-K0PUZKYbi7g1qZILyTVL2mLyZg_NDCuFfsyGI4Q&s",
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9e4Sc_-gVYPjOd344RaN29Q7QUrf3-T_kdaPyiZtHQEytF09ROZvRo0g&s",
+                        "width": "300",
+                        "height": "168"
+                    }
+                ],
+                "metatags": [
+                    {
+                        "og:image": "http://www.molnlycke.us/SysSiteAssets/master-and-local-markets/products-and-solutions/surgical---products/gloves/biogel-surgeons-front.jpg",
+                        "og:type": "website",
+                        "theme-color": "#ffffff",
+                        "viewport": "width=device-width, initial-scale=1.0",
+                        "og:title": "Biogel® Surgeons  | Mölnlycke",
+                        "og:locale": "en_US",
+                        "og:url": "http://www.molnlycke.us/products-solutions/biogel-surgeons/",
+                        "og:description": "Sterile, powder-free, natural rubber latex surgical gloves for use in general surgical procedures.",
+                        "facebook-domain-verification": "3q13aklrqefcf2859uj4c3jmh8mt8p"
+                    }
+                ],
+                "cse_image": [
+                    {
+                        "src": "http://www.molnlycke.us/SysSiteAssets/master-and-local-markets/products-and-solutions/surgical---products/gloves/biogel-surgeons-front.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Bulk Disposable Gloves - Noble Products",
+            "htmlTitle": "Bulk <b>Disposable Gloves</b> - Noble Products",
+            "link": "https://www.nobleproducts.biz/disposable-gloves/",
+            "displayLink": "www.nobleproducts.biz",
+            "snippet": "Find a perfect fit and material for everyone with Noble's various sized latex, vinyl, and nitrile disposable gloves. Sanitarily perform everyday tasks without ...",
+            "htmlSnippet": "Find a perfect fit and material for everyone with Noble&#39;s various sized latex, vinyl, and nitrile <b>disposable gloves</b>. Sanitarily perform everyday tasks without&nbsp;...",
+            "formattedUrl": "https://www.nobleproducts.biz/disposable-gloves/",
+            "htmlFormattedUrl": "https://www.nobleproducts.biz/<b>disposable</b>-<b>gloves</b>/",
+            "pagemap": {
+                "cse_thumbnail": [
+                    {
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREIYZDejsGUuSg2GYzbfbw-UyfRpr9SnP71a7bYcqjo7f1-2HTCz20JpfI&s",
                         "width": "225",
                         "height": "225"
                     }
                 ],
                 "metatags": [
                     {
-                        "og:image": "https://us.pipglobal.com/images/PIP-Square-Profile-Image---800x800.jpg",
-                        "og:site_name": "Protective Industrial Products",
+                        "viewport": "width=device-width, initial-scale=1"
+                    }
+                ],
+                "cse_image": [
+                    {
+                        "src": "https://www.webstaurantstore.com/images/products/large/543184/2432203.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "SAS Safety Group | Home",
+            "htmlTitle": "SAS Safety Group | Home",
+            "link": "https://www.sassafety.com/",
+            "displayLink": "www.sassafety.com",
+            "snippet": "EXAM GRADE NITRILE DISPOSABLE GLOVES. Introducing the Raven® Patriot – where innovative design and leading manufacturing technology meet to deliver an ...",
+            "htmlSnippet": "EXAM GRADE NITRILE <b>DISPOSABLE GLOVES</b>. Introducing the Raven® Patriot – where innovative design and leading manufacturing technology meet to deliver an&nbsp;...",
+            "formattedUrl": "https://www.sassafety.com/",
+            "htmlFormattedUrl": "https://www.sassafety.com/",
+            "pagemap": {
+                "metatags": [
+                    {
+                        "og:type": "website",
+                        "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no",
+                        "og:title": "SAS Safety Group | Home",
+                        "og:url": "https://www.sassafety.com/"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Contact Us - SafetyGloves.co.uk",
+            "htmlTitle": "<b>Contact</b> Us - SafetyGloves.co.uk",
+            "link": "https://www.safetygloves.co.uk/contact-us.html",
+            "displayLink": "www.safetygloves.co.uk",
+            "snippet": "Contact Our Team Of Hand Protection Experts At SafetyGloves.co.uk. Contact Us About Safety Gloves Using Our Contact Us Page.",
+            "htmlSnippet": "<b>Contact</b> Our Team Of Hand Protection Experts At SafetyGloves.co.uk. <b>Contact</b> Us About Safety <b>Gloves</b> Using Our <b>Contact</b> Us Page.",
+            "formattedUrl": "https://www.safetygloves.co.uk/contact-us.html",
+            "htmlFormattedUrl": "https://www.safety<b>gloves</b>.co.uk/<b>contact</b>-us.html",
+            "pagemap": {
+                "metatags": [
+                    {
+                        "viewport": "width=device-width, initial-scale=1.0"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "customsearch#result",
+            "title": "Disposable Gloves | Safeware",
+            "htmlTitle": "<b>Disposable Gloves</b> | Safeware",
+            "link": "https://www.safewareinc.com/education/personal-protective-equipment/disposable-gloves",
+            "displayLink": "www.safewareinc.com",
+            "snippet": "Glove, Nitrile, BLACK, 9.5\" 4mil PF. View All Choices. View All Choices. Expand to Compare / View All Choices / View item Details ...",
+            "htmlSnippet": "<b>Glove</b>, <b>Nitrile</b>, BLACK, 9.5&quot; 4mil PF. View All Choices. View All Choices. Expand to Compare / View All Choices / View item <b>Details</b>&nbsp;...",
+            "formattedUrl": "https://www.safewareinc.com/education/personal.../disposable-gloves",
+            "htmlFormattedUrl": "https://www.safewareinc.com/education/personal.../<b>disposable</b>-<b>gloves</b>",
+            "pagemap": {
+                "cse_thumbnail": [
+                    {
+                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHLMsckq6lpcwWJxuTwU0IU4m91xEDbuWCqs75kGhbiJQljl8epRjytg&s",
+                        "width": "125",
+                        "height": "125"
+                    }
+                ],
+                "product": [
+                    {
+                        "name": "Safeware Authorized Su...",
+                        "description": "Glove, Nitrile, BLACK, 9.5\" 4mil PF"
+                    },
+                    {
+                        "image": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Ansell_92-675-L.jpg",
+                        "name": "Ansell",
+                        "description": "TouchNTuff® 92-675 Blue Nitrile Robust Protection Disposable Gloves"
+                    },
+                    {
+                        "image": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Showa_7705PFT-L.jpg",
+                        "name": "ShowaBest",
+                        "description": "N-Dex Nitrile Disposable Gloves- 7705PFT"
+                    },
+                    {
+                        "image": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Ansell_92-600-L.jpg",
+                        "name": "Ansell",
+                        "description": "TouchNTuff® 92-600 Green Nitrile Robust Disposable Gloves"
+                    },
+                    {
+                        "image": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Showa_7700PFT-L.jpg",
+                        "name": "ShowaBest",
+                        "description": "N-Dex NightHawk Disposable Gloves- 7700PFT"
+                    },
+                    {
+                        "image": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Showa_8005PF-L.jpg",
+                        "name": "ShowaBest",
+                        "description": "N-Dex Plus Disposable Gloves- 8005PF"
+                    },
+                    {
+                        "image": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/West_Chester_2950-2XL.jpg",
+                        "name": "West Chester",
+                        "description": "PosiShield 2950 Blue Nitrile High Risk Industrial Grade Disposable Gloves"
+                    },
+                    {
+                        "image": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Ansell_SG-375-L.jpg",
+                        "name": "Ansell",
+                        "description": "Microflex® SafeGrip® SG-375 Blue Natural Rubber Latex Disposable Gloves"
+                    },
+                    {
+                        "image": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Honeywell_029990.jpg",
+                        "name": "Honeywell",
+                        "description": "Latex Medical Grade Powder-Free Disposable Gloves Size M/L White 2 Pair/Box",
+                        "mpn": "MPN: 29990",
+                        "sku": "Brand: Honeywell"
+                    },
+                    {
+                        "image": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/West_Chester_2750_L.jpg",
+                        "name": "Safeware",
+                        "description": "2750 Vinyl Industrial Grade Powder-Free Disposable Gloves Size XL Clear",
+                        "mpn": "MPN: 2750/XL",
+                        "sku": "Brand: Safeware"
+                    },
+                    {
+                        "image": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Ansell_SEC-375-L.jpg",
+                        "name": "Safeware",
+                        "description": "Microflex SafeGrip Nitrile Disposable Gloves- SEC-375"
+                    },
+                    {
+                        "image": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/West_Chester_2700_L.jpg",
+                        "name": "Safeware",
+                        "description": "Posi Shield® 2700 Clear Vinyl Industrial Grade Lightly Powdered Disposable Gloves"
+                    }
+                ],
+                "organization": [
+                    {
+                        "logo": "https://www.safewareinc.com/ASSETS/WEB_THEMES/ECOMMERCE_STD_TEMPLATE_V2/images/logo.png",
+                        "url": "https://www.safewareinc.com/"
+                    }
+                ],
+                "aggregaterating": [
+                    {
+                        "ratingvalue": "3 1",
+                        "reviewcount": "1"
+                    },
+                    {
+                        "ratingvalue": "3 1",
+                        "reviewcount": "1"
+                    },
+                    {
+                        "ratingvalue": "3 1",
+                        "reviewcount": "1"
+                    },
+                    {
+                        "ratingvalue": "3 1",
+                        "reviewcount": "1"
+                    },
+                    {
+                        "ratingvalue": "3 1",
+                        "reviewcount": "1"
+                    },
+                    {
+                        "ratingvalue": "3 1",
+                        "reviewcount": "1"
+                    },
+                    {
+                        "ratingvalue": "3 1",
+                        "reviewcount": "1"
+                    },
+                    {
+                        "ratingvalue": "3 1",
+                        "reviewcount": "1"
+                    },
+                    {
+                        "ratingvalue": "3 1",
+                        "reviewcount": "1"
+                    },
+                    {
+                        "ratingvalue": "3 1",
+                        "reviewcount": "1"
+                    },
+                    {
+                        "ratingvalue": "3 1",
+                        "reviewcount": "1"
+                    },
+                    {
+                        "ratingvalue": "3 1",
+                        "reviewcount": "1"
+                    }
+                ],
+                "metatags": [
+                    {
+                        "p:domain_verify": "ab92f56715b69254b3b2eacd87747281",
+                        "og:image": "/ASSETS/WEB_THEMES/ECOMMERCE_STD_TEMPLATE_V2/images/logo.png",
+                        "og:type": "website",
+                        "og:image:alt": "Safeware",
+                        "og:image:width": "250px",
+                        "twitter:card": "summary",
+                        "twitter:title": "Disposable Gloves | Safeware",
+                        "og:site_name": "Safeware",
+                        "msvalidate.01": "5AAE61D888E7DF27DAA5026AB9237963",
+                        "og:title": "Disposable Gloves | Safeware",
+                        "og:image:height": "200px",
+                        "og:description": "Safeware provides a superior selection of SAFETY products and technical SERVICE to customers in the Industrial, Government, Military and RESPONSE markets.",
+                        "twitter:image": "https://www.safewareinc.com/ASSETS/IMAGES/LOGOS/CLIENT/logo.png",
+                        "facebook-domain-verification": "cnju34u68rz92msl7zhx48to8f4l3m",
                         "viewport": "width=device-width, initial-scale=1.0",
-                        "author": "Protective Industrial Products",
-                        "og:title": "Contact PIP®",
-                        "title": "Contact PIP®",
-                        "og:url": "https://us.pipglobal.com/en/contact-us/",
-                        "og:description": "Contact PIP® today to learn more about our wide array of safety solutions.",
+                        "twitter:description": "Safeware provides a superior selection of SAFETY products and technical SERVICE to customers in the Industrial, Government, Military and RESPONSE markets.",
+                        "og:url": "https://www.safewareinc.com/education/personal-protective-equipment/disposable-gloves",
                         "format-detection": "telephone=no"
                     }
                 ],
                 "cse_image": [
                     {
-                        "src": "https://us.pipglobal.com/images/PIP-Square-Profile-Image---800x800.jpg"
-                    }
-                ]
-            }
-        },
-        {
-            "kind": "customsearch#result",
-            "title": "Playtex® Living® Gloves | O-Cedar®",
-            "htmlTitle": "Playtex® Living® <b>Gloves</b> | O-Cedar®",
-            "link": "https://www.ocedar.com/p/gloves/reusable-gloves/playtex-living-gloves/",
-            "displayLink": "www.ocedar.com",
-            "snippet": "Our Playtex Living Gloves are durable, reusable, and provide the ultimate protection from water and harmful household chemicals.",
-            "htmlSnippet": "Our Playtex Living <b>Gloves</b> are durable, reusable, and provide the ultimate protection from water and harmful household chemicals.",
-            "formattedUrl": "https://www.ocedar.com/p/gloves/reusable-gloves/playtex-living-gloves/",
-            "htmlFormattedUrl": "https://www.ocedar.com/p/<b>gloves</b>/reusable-<b>gloves</b>/playtex-living-<b>gloves</b>/",
-            "pagemap": {
-                "cse_thumbnail": [
-                    {
-                        "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREi3WAhuHkWgW-rL97yvwu3Py7kgqebndQkNqw9EemsgLs69KlH6eaZrc&s",
-                        "width": "225",
-                        "height": "225"
+                        "src": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/saf%20673.jpg"
                     }
                 ],
-                "metatags": [
+                "hproduct": [
                     {
-                        "msapplication-tilecolor": "#ffffff",
-                        "fb:app_id": "1958116467645114",
-                        "twitter:card": "summary_large_image",
-                        "theme-color": "#ffffff",
-                        "viewport": "width=device-width, initial-scale=1, user-scalable=no",
-                        "og:url": "https://www.ocedar.com/p/gloves/reusable-gloves/playtex-living-gloves/",
-                        "title": "Playtex® Living® Gloves",
-                        "msapplication-tileimage": "/mstile-144x144.png"
-                    }
-                ],
-                "cse_image": [
+                        "fn": "Safeware Authorized Su...",
+                        "description": "Glove, Nitrile, BLACK, 9.5\" 4mil PF"
+                    },
                     {
-                        "src": "https://www.ocedar.com/medias/US-ATF-30-PlaytexLivingGloves-1-VC-Prod-Sell-Slot?context=bWFzdGVyfHJvb3R8MjAyNzR8aW1hZ2UvanBlZ3xhR1UyTDJnek5DODVNamd4TVRBd09UQTJOVEkyTDFWVFgwRlVSbDh6TUY5UWJHRjVkR1Y0VEdsMmFXNW5SMnh2ZG1Welh6RmZWa05mVUhKdlpGOVRaV3hzWDFOc2IzUXwxNTU3YTY3MWE1YTJmOWQwNDViZjFiZGY1YTYyZTg4MjQ5NWNhMzdmNDk1ZTliOTQyNGRlMzk1OGY1MGVlNzRm"
+                        "fn": "Ansell",
+                        "description": "TouchNTuff® 92-675 Blue Nitrile Robust Protection Disposable Gloves",
+                        "photo": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Ansell_92-675-L.jpg"
+                    },
+                    {
+                        "fn": "ShowaBest",
+                        "description": "N-Dex Nitrile Disposable Gloves- 7705PFT",
+                        "photo": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Showa_7705PFT-L.jpg"
+                    },
+                    {
+                        "fn": "Ansell",
+                        "description": "TouchNTuff® 92-600 Green Nitrile Robust Disposable Gloves",
+                        "photo": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Ansell_92-600-L.jpg"
+                    },
+                    {
+                        "fn": "ShowaBest",
+                        "description": "N-Dex NightHawk Disposable Gloves- 7700PFT",
+                        "photo": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Showa_7700PFT-L.jpg"
+                    },
+                    {
+                        "fn": "ShowaBest",
+                        "description": "N-Dex Plus Disposable Gloves- 8005PF",
+                        "photo": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Showa_8005PF-L.jpg"
+                    },
+                    {
+                        "fn": "West Chester",
+                        "description": "PosiShield 2950 Blue Nitrile High Risk Industrial Grade Disposable Gloves",
+                        "photo": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/West_Chester_2950-2XL.jpg"
+                    },
+                    {
+                        "fn": "Ansell",
+                        "description": "Microflex® SafeGrip® SG-375 Blue Natural Rubber Latex Disposable Gloves",
+                        "photo": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Ansell_SG-375-L.jpg"
+                    },
+                    {
+                        "fn": "Honeywell",
+                        "description": "Latex Medical Grade Powder-Free Disposable Gloves Size M/L White 2 Pair/Box",
+                        "photo": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Honeywell_029990.jpg"
+                    },
+                    {
+                        "fn": "Safeware",
+                        "description": "2750 Vinyl Industrial Grade Powder-Free Disposable Gloves Size XL Clear",
+                        "photo": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/West_Chester_2750_L.jpg",
+                        "currency": "USD",
+                        "currency_iso4217": "840"
+                    },
+                    {
+                        "fn": "Safeware",
+                        "description": "Microflex SafeGrip Nitrile Disposable Gloves- SEC-375",
+                        "photo": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/Ansell_SEC-375-L.jpg"
+                    },
+                    {
+                        "fn": "Safeware",
+                        "description": "Posi Shield® 2700 Clear Vinyl Industrial Grade Lightly Powdered Disposable Gloves",
+                        "photo": "https://www.safewareinc.com/ASSETS/IMAGES/ITEMS/LIST_DISPLAY/West_Chester_2700_L.jpg"
                     }
                 ]
             }

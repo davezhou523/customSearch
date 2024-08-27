@@ -6,22 +6,26 @@ import re
 from bs4 import BeautifulSoup
 import mysql.connector
 from mysql.connector import Error
-
+import certifi
 import model.search_contact
 import model.ggl
+import spider
 from db.connect import DatabaseConnection
 from urllib.parse import urljoin, urlparse
 import tool.encry
 import urllib3
 import geoip2.database
 from urllib.parse import urlparse
+import spider.get_beautiful_soup
+import spider.get_web_drive
+
 
 # 禁用所有不安全请求警告
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 #搜索引擎程序化地访问每天的查询数上限为 10,000 次。
 # 配置 AIzaSyBkq9s4W1xTm0LKvMryQhSxm4PZef-Fqgs
-# API_KEY = 'AIzaSyBkq9s4W1xTm0LKvMryQhSxm4PZef-Fqgs'
-API_KEY = 'AIzaSyDVGWYSuDRMX3GTM6NxqAxX7AxW4vq8qNE'
+API_KEY = 'AIzaSyBkq9s4W1xTm0LKvMryQhSxm4PZef-Fqgs'
+# API_KEY = 'AIzaSyDVGWYSuDRMX3GTM6NxqAxX7AxW4vq8qNE' //每天100次查询
 SEARCH_ENGINE_ID = '45f1e3f35c4214993'
 # SEARCH_ENGINE_ID2 = '237198be3239943fc'
 # 设置排除的国家和地区
@@ -76,9 +80,10 @@ def run():
                     print(f"Region: {location_info['region']}")
                     print(f"Country: {location_info['country']}")
 
-                print('-' * 40)
+
                 record += 1
                 print(f" 条数:{record}")
+                print('-' * 40)
                 if len(all_emails) > 0:
                     for email in all_emails:
                         email=convert_email_domain_to_lowercase(email)
@@ -87,7 +92,12 @@ def run():
                     save_to_database(query, url, ",".join(all_emails), ",".join(all_phones), 2,location_json,gl,lr)
             print(f"start_page is {start_page}")
 
-
+"""
+域名部转成小写
+"""
+def convert_email_domain_to_lowercase(email):
+    local_part,domain_part=email.split("@")
+    return f"{local_part}@{domain_part.lower()}"
 
 def get_search_results(query, num, startPage=1, gl="us", lr=""):
     # 设置请求参数
@@ -98,8 +108,9 @@ def get_search_results(query, num, startPage=1, gl="us", lr=""):
         'cx': SEARCH_ENGINE_ID,  # 你的Custom Search Engine ID
         'key': API_KEY,  # 你的API密钥
         'gl': gl,  # 最终用户的地理位置，可以根据需要更改
-        'lr': lr  # 搜索结果语言
-
+        'lr': lr,  # 搜索结果语言
+        'siteSearch':'gloves.com',
+        'siteSearchFilter':'e' #"e"：排除"i"：包含
     }
     # 代理服务器的地址和端口
     proxies = {
@@ -111,7 +122,8 @@ def get_search_results(query, num, startPage=1, gl="us", lr=""):
     # api 文档：https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list?hl=zh-cn#response-body
     url=f"https://www.googleapis.com/customsearch/v1"
     # 忽略InsecureRequestWarning警告
-    response = requests.get(url,params=params,proxies=proxies,verify=False)
+    # response = requests.get(url,params=params,proxies=proxies,verify=certifi.where())
+    response = requests.get(url,params=params,proxies=proxies,verify=None)
 
     if response.status_code == 200:
         # 将响应数据写入文件
@@ -161,7 +173,7 @@ def extract_contact_info(text):
     return emails, phones
 
 
-def crawl_website(base_url, max_depth=4):
+def crawl_website(base_url, max_depth=2):
     to_visit = [(base_url, 0)]  # (url, depth)
     visited_urls = set()
     while to_visit:
@@ -171,8 +183,8 @@ def crawl_website(base_url, max_depth=4):
 
         visited_urls.add(url)
 
-        emails, phones, soup = extract_contact_info_from_url(url)
-        if len(emails)>0 or len(phones)>0:
+        emails, phones, soup = spider.get_beautiful_soup.getContentByBS(url)
+        if len(emails) > 0 or len(phones) > 0:
             print(f"Found on {url}")
             print(f"Emails: {emails}")
             print(f"Phones: {phones}\n")
@@ -186,71 +198,10 @@ def crawl_website(base_url, max_depth=4):
                 if urlparse(new_url).netloc == urlparse(base_url).netloc:
                     to_visit.append((new_url, depth + 1))
     return set(), set()
-def extract_contact_info_from_url(url):
-    try:
 
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        # 匹配电子邮件地址
-        # emails = set(re.findall(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", soup.get_text()))
-        emails = set(re.findall(r'[\w\.-]+@[\w\.-]+\.\w+', soup.get_text("<br>")))
 
-        # 匹配电话号码（国际标准和常见格式）
-        phones = set(re.findall(r"\+?\d[\d\s.-]{8,}\d", soup.get_text()))
-        if len(phones) == 0:
-            phones = match_phone(soup.get_text())
-            if len(phones) == 0:
-                phones=match_phone_href(soup)
-        else:
-            phones= format_phone(phones)
 
-        return emails, phones,soup
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching {url}: {e}")
-        return set(), set(),None
 
-def format_phone(phones):
-    for phone in phones:
-        # 去除两端的空白字符（包括换行符）
-        cleaned_text = phone.strip()
-        # 按换行符分割字符串
-        lines = cleaned_text.split('\n')
-        cleaned_lines = [line.strip() for line in lines if line.strip()]  # 排除空行
-        if len(cleaned_lines) == 1:
-            return set(cleaned_lines)
-    return set()
-
-def match_phone(text):
-
-    pattern_capture = r'\((\d{3})\) (\d{3})-(\d{4})'
-    match_capture = re.search(pattern_capture, text)
-    if match_capture:
-        # 现在可以通过索引来访问捕获的组
-        area_code, prefix, suffix = match_capture.groups()
-        phone_number =f"({area_code}) {prefix}-{suffix}"
-
-        phoneSet=set()
-        if area_code:
-            return phoneSet|{phone_number}
-    return set()
-def match_phone_href(soup):
-    # 查找所有带有 href 属性的 <a> 标签
-    a_tag = soup.find('a', href=True)
-    phoneSet = set()
-    # 检查 href 属性是否包含 'tel:'
-    if a_tag is not None and 'tel:' in a_tag['href']:
-        # 提取电话号码
-        phone_number = a_tag['href'].split(':')[1]
-
-        if phone_number:
-            return phoneSet|{phone_number}
-    return set()
-"""
-域名部转成小写
-"""
-def convert_email_domain_to_lowercase(email):
-    local_part,domain_part=email.split("@")
-    return f"{local_part}@{domain_part.lower()}"
 def save_to_database(keyword, url, email, phone, category,location,gl,lr):
     """保存提取到的数据到 MySQL 数据库"""
     global db_connection
@@ -261,10 +212,13 @@ def save_to_database(keyword, url, email, phone, category,location,gl,lr):
         if  len(email) > 0:
             isExists = model.search_contact.search_contact_query(email)
             if isExists:
+                print(f"{email} 更新数据")
                 model.search_contact.search_contact_update(keyword, url, email, phone, category, location, gl, lr)
             else:
+                print(f"{email} 新增数据")
                 model.search_contact.search_contact_save(keyword, url, email, phone, category,location,gl,lr)
         else:
+            print(f"{email} 新增数据")
             model.search_contact.search_contact_save(keyword, url, email, phone, category,location,gl,lr)
 
     except Error as e:
