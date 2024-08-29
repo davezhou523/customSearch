@@ -37,7 +37,7 @@ def get_dynamic_content(url):
     ##动态内容
     # 配置Chrome选项
     chrome_options = Options()
-    # chrome_options.add_argument("--headless")  # 启用无头模式
+    chrome_options.add_argument("--headless")  # 启用无头模式
     chrome_options.add_argument("--disable-gpu")  # 如果在Windows上运行，这个可能会提高稳定性
     chrome_options.add_argument("--no-sandbox")  # 在Linux服务器上运行时可能需要
     chrome_options.add_argument("--disable-dev-shm-usage")  # 避免内存不足问题
@@ -46,7 +46,7 @@ def get_dynamic_content(url):
     try:
         # 遇到 “Verifying you are human”  使用 Selenium + WebDriver 等待页面加载 等待页面加载完成，
         # 最长等待时间为10秒
-        element = WebDriverWait(driver, 15).until(
+        element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.TAG_NAME, "body"))
         )
 

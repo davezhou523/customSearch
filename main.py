@@ -28,17 +28,15 @@ def main():
     # url = "https://shopping.medexpressgloves.com/"
     # url = "https://order.ammex.com/s/product/gwon44100/01tf20000089sCVAAY"
     url = "https://acaai.org/allergies/allergic-conditions/latex-allergy/"
+    url = "https://ehs.umass.edu/sites/default/files/Glove%20Related%20Sensitivity.pdf"
     # url = "https://shopping.medexpressgloves.com/Contact-Us_ep_58.html"
-    emails, phones = google.google_search.crawl_website(url)
-    print(emails, phones)
+    # emails, phones = google.google_search.crawl_website(url)
+    # print(emails, phones)
 
 
-    # res= model.search_contact.search_contact_query("cdsafety@cumc.columbia.edu")
-    # print(res)
-    # google.google_search.run()
-    # url = "https://pdihc.com/products/environment-of-care/super-sani-cloth-germicidal-disposable-wipe/"
 
-    # print(google.google_search.get_ip_from_domain(url))
+    google.google_search.run()
+
 
 
 if __name__ == '__main__':

@@ -9,6 +9,7 @@ from mysql.connector import Error
 import certifi
 import model.search_contact
 import model.ggl
+import model.search_keyword
 import spider
 from db.connect import DatabaseConnection
 from urllib.parse import urljoin, urlparse
@@ -35,12 +36,34 @@ EXCLUDED_COUNTRIES = ['中国', '马来西亚', '越南', '泰国']
 def run():
     #排除地区国家：中国、马来西亚，越南，泰国、印度
     query = (
-        'disposable gloves contact email phone '
-        '-site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw'
+        'disposable gloves contact email phone'
+        '-site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw -site:https://shopping.medexpressgloves.com/'
     )
-    glListAll=model.ggl.google_gl_query_all(1)
+    keywordList=model.search_keyword.search_keyword_query(1)
+
+    exludeDomain = json.loads(keywordList.exclude)
+
+    # 构建排除网站的查询字符串
+    url="notEmpty"
+    page_size=100
+    contactList= model.search_contact.search_contact_query_all("",url,page_size)
+
+    exclusion_url = ' '.join([f'-site:{site.domain}' for site in contactList])
+    # print(exclusion_url)
+    exclusion_query = ' '.join([f'-site:{site}' for site in exludeDomain])
+    exclusion_type=" -filetype:pdf"
+    query = f"{keywordList.keyword} {exclusion_query} {exclusion_type} {exclusion_url}"
+    print(query)
+    start_google_search(keywordList.keyword,query)
+
+
+
+
+def start_google_search(keyword,query):
+    sta = 1 #状态,1:启用，2：停用
+    glListAll=model.ggl.google_gl_query_all(sta)
     for glData in glListAll:
-        gl=glData.code
+        gl = glData.code
         num = 10  # 限制数量10条
         start_page = 0 #免费搜索限制100页
         record = 0
@@ -70,8 +93,6 @@ def run():
                 print(f"找到的电子邮件: {all_emails}")
                 print(f"找到的电话号码: {all_phones}")
                 location_info = get_website_location(get_ip_from_domain(url))
-
-
                 # 将字典转换为 JSON 字符串
                 location_json = json.dumps(location_info)
                 if location_info:
@@ -87,9 +108,9 @@ def run():
                 if len(all_emails) > 0:
                     for email in all_emails:
                         email=convert_email_domain_to_lowercase(email)
-                        save_to_database(query, url, email, ",".join(all_phones), 2,location_json,gl,lr)
+                        save_to_database(keyword, url, email, ",".join(all_phones), 2,location_json,gl,lr)
                 else:
-                    save_to_database(query, url, ",".join(all_emails), ",".join(all_phones), 2,location_json,gl,lr)
+                    save_to_database(keyword, url, ",".join(all_emails), ",".join(all_phones), 2,location_json,gl,lr)
             print(f"start_page is {start_page}")
 
 """
@@ -206,6 +227,8 @@ def save_to_database(keyword, url, email, phone, category,location,gl,lr):
     """保存提取到的数据到 MySQL 数据库"""
     global db_connection
     try:
+        parsed_uri = urlparse(url)
+        domain=parsed_uri.netloc
         # currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         # md5 = tool.encry.generate_md5(url + email)
         db_connection = DatabaseConnection()
@@ -213,13 +236,13 @@ def save_to_database(keyword, url, email, phone, category,location,gl,lr):
             isExists = model.search_contact.search_contact_query(email)
             if isExists:
                 print(f"{email} 更新数据")
-                model.search_contact.search_contact_update(keyword, url, email, phone, category, location, gl, lr)
+                model.search_contact.search_contact_update(keyword, domain, email, phone, category, location, gl, lr)
             else:
                 print(f"{email} 新增数据")
-                model.search_contact.search_contact_save(keyword, url, email, phone, category,location,gl,lr)
+                model.search_contact.search_contact_save(keyword,url, domain, email, phone, category,location,gl,lr)
         else:
             print(f"{email} 新增数据")
-            model.search_contact.search_contact_save(keyword, url, email, phone, category,location,gl,lr)
+            model.search_contact.search_contact_save(keyword, url,domain, email, phone, category,location,gl,lr)
 
     except Error as e:
         print(f"数据库错误: {e}")
