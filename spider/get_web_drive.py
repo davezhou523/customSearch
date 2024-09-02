@@ -82,6 +82,7 @@ def get_dynamic_content(url):
     except Exception  as e:
         print(f"get_dynamic_content错误: {e}")
     finally:
+        driver.close()  # 关闭当前窗口
         # 关闭浏览器
         driver.quit()
     return set(),set(),""
