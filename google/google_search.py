@@ -10,6 +10,8 @@ import certifi
 import model.search_contact
 import model.ggl
 import model.search_keyword
+import model.search_config
+import model.search_config_run
 import spider
 from db.connect import DatabaseConnection
 from urllib.parse import urljoin, urlparse
@@ -37,7 +39,7 @@ def run():
     #排除地区国家：中国、马来西亚，越南，泰国、印度
     query = (
         'disposable gloves contact email phone'
-        '-site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw -site:https://shopping.medexpressgloves.com/'
+        '-site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw -site:https://shopping.medexpressgloves.com/ -siete:gloves.com'
     )
     keywordList=model.search_keyword.search_keyword_query(1)
 
@@ -45,7 +47,7 @@ def run():
 
     # 构建排除网站的查询字符串
     url="notEmpty"
-    page_size=100
+    page_size = 200
     contactList= model.search_contact.search_contact_query_all("",url,page_size)
 
     exclusion_url = ' '.join([f'-site:{site.domain}' for site in contactList])
@@ -53,7 +55,7 @@ def run():
     exclusion_query = ' '.join([f'-site:{site}' for site in exludeDomain])
     exclusion_type=" -filetype:pdf"
     query = f"{keywordList.keyword} {exclusion_query} {exclusion_type} {exclusion_url}"
-    print(query)
+    # print(query)
     start_google_search(keywordList.keyword,query)
 
 
@@ -120,19 +122,33 @@ def convert_email_domain_to_lowercase(email):
     local_part,domain_part=email.split("@")
     return f"{local_part}@{domain_part.lower()}"
 
-def get_search_results(query, num, startPage=1, gl="us", lr=""):
-    # 设置请求参数
+def get_api_key():
+    create_time=datetime.datetime.now().strftime("%Y-%m-%d")
+    #获取当天最新api_key
+    data= model.search_config_run.search_config_run_query(create_time)
+    if data is None:
+        search_config = model.search_config.search_config_query()
+        if search_config is None:
+            return None
+        #没有则添加一条api_key
+        model.search_config_run.search_config_run_save(search_config.id)
+        return search_config.key
+    return data.key
+
+def get_query_params(query, num, startPage=1, gl="us", lr=""):
+    api_key = get_api_key()
     params = {
         'q': query,
         'num': num,
         'start': startPage,
         'cx': SEARCH_ENGINE_ID,  # 你的Custom Search Engine ID
-        'key': API_KEY,  # 你的API密钥
+        'key': api_key,  # 你的API密钥
         'gl': gl,  # 最终用户的地理位置，可以根据需要更改
         'lr': lr,  # 搜索结果语言
-        'siteSearch':'gloves.com',
-        'siteSearchFilter':'e' #"e"：排除"i"：包含
+        'siteSearch': 'gloves.com',
+        'siteSearchFilter': 'e'  # "e"：排除"i"：包含
     }
+
     # 代理服务器的地址和端口
     proxies = {
         'http': 'socks5h://127.0.0.1:1080',
@@ -141,16 +157,32 @@ def get_search_results(query, num, startPage=1, gl="us", lr=""):
 
     # 调用API
     # api 文档：https://developers.google.com/custom-search/v1/reference/rest/v1/cse/list?hl=zh-cn#response-body
-    url=f"https://www.googleapis.com/customsearch/v1"
-    # 忽略InsecureRequestWarning警告
-    # response = requests.get(url,params=params,proxies=proxies,verify=certifi.where())
-    response = requests.get(url,params=params,proxies=proxies,verify=None)
+    url = f"https://www.googleapis.com/customsearch/v1"
+    return  requests.get(url, params=params, proxies=proxies, verify=None)
 
+def get_search_results(query, num, startPage=1, gl="us", lr=""):
+    # 设置请求参数
+    # api_key = get_api_key()
+
+    response = get_query_params(query, num, startPage, gl, lr)
+    print(f"response.status_code:{response.status_code}")
     if response.status_code == 200:
         # 将响应数据写入文件
         with open('response.json', 'w', encoding='utf-8') as f:
             json.dump(response.json(), f, ensure_ascii=False, indent=4)
         return response.json().get('items', [])
+    if response.status_code == 429:
+        #每日数额上限
+        create_time = datetime.datetime.now().strftime("%Y-%m-%d")
+        # 获取当天最新api_key
+        dataList = model.search_config_run.search_config_run_query_all(create_time)
+        config_id = list()
+        for data in dataList:
+            config_id.append(data.config_id)
+        lastConfig = model.search_config.search_config_query_where(config_id)
+        model.search_config_run.search_config_run_save(lastConfig.id)
+        get_search_results(query, num, startPage, gl, lr)
+        return []
     else:
         print(f"get_search_results Error: {response.json()}")
         return []

@@ -12,6 +12,7 @@ def search_keyword_query(sta=0):
     if sta > 0:
         sql += " sta = :sta"
         params = {"sta": sta}
+    sql += " order by id asc "
 
     res = db_connection.execute_query(sql, params, False)
     return res
