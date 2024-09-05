@@ -19,12 +19,12 @@ def search_contact_query_all(email="",url="",page_size=50):
     params = {}
     if  len(email)>0:
         sql += " email = :email"
-        params = {"email": email}
+        params.update({"email": email})
     if url=="notEmpty":
         sql += " url != '' "
     sql += " order by id desc "
     sql += " limit :page_size"
-    params = {"page_size": page_size}
+    params.update({"page_size": page_size})
     res = db_connection.execute_query(sql, params)
     return res
 def search_contact_save(keyword, url,domain, email, phone, category,location,gl,lr):

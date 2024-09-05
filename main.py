@@ -9,6 +9,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from sqlalchemy import text
+import spider.get_web_drive
 
 
 def main():
@@ -28,9 +29,12 @@ def main():
     # url = "https://shopping.medexpressgloves.com/"
     # url = "https://order.ammex.com/s/product/gwon44100/01tf20000089sCVAAY"
     url = "https://acaai.org/allergies/allergic-conditions/latex-allergy/"
-    url = "https://ehs.umass.edu/sites/default/files/Glove%20Related%20Sensitivity.pdf"
+
     # url = "https://shopping.medexpressgloves.com/Contact-Us_ep_58.html"
+    # url = "https://www.smartandfinal.com/contact-us/"
+    url = "https://www.henryschein.com/us-en/dental/contact.aspx"
     # emails, phones = google.google_search.crawl_website(url)
+    # emails, phones, soup = spider.get_web_drive.get_dynamic_content(url)
     # print(emails, phones)
 
 

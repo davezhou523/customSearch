@@ -37,7 +37,7 @@ def get_dynamic_content(url):
     ##动态内容
     # 配置Chrome选项
     chrome_options = Options()
-    chrome_options.add_argument("--headless")  # 启用无头模式
+    # chrome_options.add_argument("--headless")  # 启用无头模式
     chrome_options.add_argument("--disable-gpu")  # 如果在Windows上运行，这个可能会提高稳定性
     chrome_options.add_argument("--no-sandbox")  # 在Linux服务器上运行时可能需要
     chrome_options.add_argument("--disable-dev-shm-usage")  # 避免内存不足问题
@@ -52,20 +52,26 @@ def get_dynamic_content(url):
 
         # 执行 JavaScript 来获取动态内容
         # <a href="mailto:LMS_Helpdesk@efa.org" data-once="ef-outbound-url">LMS_Helpdesk@efa.org</a>
-        emails_script = """
+        emails_script = r"""
                       var emailElements = document.querySelectorAll('a[href^="mailto:"]');
                       var emails = [];
+                      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  
                       emailElements.forEach(function(element) {
                           var href = element.getAttribute('href');
                           var email = href.split('?')[0].replace('mailto:', ''); // 提取 ? 之前的部分
                           if (email) {
-                            emails.push(email);
+                            
+                            if (emailRegex.test(email)) {
+                                emails.push(email);
+                            }
+                            
                           }
                       });
+                      
                       return emails;
                   """
         emails = driver.execute_script(emails_script)
-        print("Found emails_set:", sorted(set(emails)))
+        print("webdriver.Chrome Found emails_set:", sorted(set(emails)))
         tel_script = """
                       var telElements = document.querySelectorAll('a[href^="tel:"]');
                       var phones = [];

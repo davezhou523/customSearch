@@ -16,7 +16,8 @@ import urllib3
 import geoip2.database
 from urllib.parse import urlparse
 import spider.get_web_drive
-
+EMAIL_PATTERN = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+PHONE_PATTERN = r"\+?\d[\d\s.-]{8,}\d"
 def getContentByBS(url=""):
     try:
         if url != "":
@@ -32,14 +33,17 @@ def getContentByBS(url=""):
             }
             response = requests.get(url, headers=headers, proxies=proxies,verify=None)
             # 检查请求是否成功
+            print(f"Status code: {response.status_code}")
             if response.status_code == 200:
                 # 解析HTML
                 soup = BeautifulSoup(response.content, 'html.parser')
-                emails=get_email(soup)
+                emails = get_email(soup)
+                print(f"BeautifulSoup Emails: {emails}")
                 if len(emails) > 0:
-                    return get_email(soup), get_phone(soup), soup
+                    return emails, get_phone(soup), soup
                 else:
                     emails, phones, soup = spider.get_web_drive.get_dynamic_content(url)
+                    print(f"get_dynamic_content Emails: {emails}")
                     if len(emails) > 0:
                         return emails, phones, soup
             else:
@@ -59,9 +63,9 @@ def getContentByBS(url=""):
 
 def get_email(soup):
     # 使用正则表达式查找邮箱地址
-    emails=set()
-    email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
-    emails = re.findall(email_pattern, soup.text)
+    # email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+    emails = re.findall(EMAIL_PATTERN, soup.text)
+    # print(f"get_email: {emails}")
     if len(emails) == 0:
         emails = match_email_href(soup)
         return emails
@@ -70,7 +74,7 @@ def get_phone(soup):
     # 使用正则表达式查找邮箱地址
     phones=set()
     # 匹配电话号码（国际标准和常见格式）
-    phones = set(re.findall(r"\+?\d[\d\s.-]{8,}\d", soup.get_text()))
+    phones = set(re.findall(PHONE_PATTERN, soup.get_text()))
     if len(phones) == 0:
         phones = match_phone(soup.get_text())
         if len(phones) == 0:
@@ -107,14 +111,18 @@ def match_phone(text):
 def match_email_href(soup):
     # <a href="mailto:efa@apisource.com" data-once="ef-outbound-url">efa@apisource.com</a>
     email_tags = soup.find_all('a', href=True)
+
     # 提取邮箱地址
     emails = set()
     for tag in email_tags:
         if tag['href'].startswith('mailto:'):
             email= tag['href'].split("?")[0].replace("mailto:", "")
+            print(f"match_email_href:{email}")
             if len(email)>0:
-                emails.add(email)
-            return emails
+                print(f"test:{email}")
+                emails = re.findall(EMAIL_PATTERN, email)
+                print(f"test222:{emails}")
+                return emails
 
     return set()
 def match_phone_href(soup):

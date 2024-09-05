@@ -39,7 +39,7 @@ def run():
     #排除地区国家：中国、马来西亚，越南，泰国、印度
     query = (
         'disposable gloves contact email phone'
-        '-site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw -site:https://shopping.medexpressgloves.com/ -siete:gloves.com'
+        '-site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw -site:https://shopping.medexpressgloves.com/ -siete:https://www.gloves.com/pages/contact-us'
     )
     keywordList=model.search_keyword.search_keyword_query(1)
 
@@ -47,13 +47,14 @@ def run():
 
     # 构建排除网站的查询字符串
     url="notEmpty"
-    page_size = 200
+    page_size = 600
     contactList= model.search_contact.search_contact_query_all("",url,page_size)
 
     exclusion_url = ' '.join([f'-site:{site.domain}' for site in contactList])
     # print(exclusion_url)
     exclusion_query = ' '.join([f'-site:{site}' for site in exludeDomain])
-    exclusion_type=" -filetype:pdf"
+    exclusion_type=" -filetype:pdf -site:https://www.gloves.com/pages/contact-us"
+
     query = f"{keywordList.keyword} {exclusion_query} {exclusion_type} {exclusion_url}"
     # print(query)
     start_google_search(keywordList.keyword,query)
