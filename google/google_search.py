@@ -1,6 +1,8 @@
 import datetime
 import json
 import socket
+import time
+
 import requests
 import re
 from bs4 import BeautifulSoup
@@ -76,6 +78,7 @@ def start_google_search(keyword,query):
             lr = ""
             results = get_search_results(query, num, start_page,gl,lr)
             if len(results) == 0:
+                model.ggl.google_gl_update(gl,2)
                 break
             start_page = start_page + num
             for result in results:
@@ -107,6 +110,8 @@ def start_google_search(keyword,query):
 
                 record += 1
                 print(f" 条数:{record}")
+                currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                print(f" current time:{currentTime}")
                 print('-' * 40)
                 if len(all_emails) > 0:
                     for email in all_emails:

@@ -23,7 +23,7 @@ def google_gl_query_all(sta=0):
     if sta > 0:
         sql += " sta = :sta"
         params = {"sta": sta}
-
+    sql += " order by id asc "
     res = db_connection.execute_query(sql, params, True)
     return res
 
@@ -39,9 +39,7 @@ def google_gl_save(keyword, url, email, phone, category, location, gl, lr):
     db_connection.insert_record(sql, insert_params)
 
 
-def google_gl_update(keyword, url, email, phone, category, location, gl, lr):
-    currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    md5 = tool.encry.generate_md5(url + email)
-    sql = "update google_gl set email=:email ,phone=:phone ,update_time=:update_time ,location=:location,gl=:gl,lr=:lr where md5=:md5"
-    db_connection.update_record(sql, {"email": email, "phone": phone, "update_time": currentTime, "md5": md5,
-                                      "location": location, "gl": gl, "lr": lr})
+def google_gl_update(code, sta):
+
+    sql = "update google_gl set sta=:sta where code=:code"
+    db_connection.update_record(sql, {"code": code, "sta": sta})

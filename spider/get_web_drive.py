@@ -16,8 +16,9 @@ def get_content_by_webdriver(url):
     chrome_options.add_argument("--no-sandbox")  # 在Linux服务器上运行时可能需要
     chrome_options.add_argument("--disable-dev-shm-usage")  # 避免内存不足问题
     driver = webdriver.Chrome(options=chrome_options)
-    driver.get(url)
+
     try:
+        driver.get(url)
         # 遇到 “Verifying you are human”  使用 Selenium + WebDriver 等待页面加载 等待页面加载完成，
         # 最长等待时间为10秒
         element = WebDriverWait(driver, 15).until(
@@ -30,6 +31,7 @@ def get_content_by_webdriver(url):
         return driver
     finally:
     # 关闭浏览器
+        driver.close()
         driver.quit()
         return  None
 
@@ -37,16 +39,21 @@ def get_dynamic_content(url):
     ##动态内容
     # 配置Chrome选项
     chrome_options = Options()
+
+    chrome_options.add_argument('--disable-software-rasterizer')
     # chrome_options.add_argument("--headless")  # 启用无头模式
     chrome_options.add_argument("--disable-gpu")  # 如果在Windows上运行，这个可能会提高稳定性
     chrome_options.add_argument("--no-sandbox")  # 在Linux服务器上运行时可能需要
     chrome_options.add_argument("--disable-dev-shm-usage")  # 避免内存不足问题
     driver = webdriver.Chrome(options=chrome_options)
-    driver.get(url)
+    # 增加页面加载超时时间
+    driver.set_page_load_timeout(60)  # 设置为60秒
+
     try:
+        driver.get(url)
         # 遇到 “Verifying you are human”  使用 Selenium + WebDriver 等待页面加载 等待页面加载完成，
         # 最长等待时间为10秒
-        element = WebDriverWait(driver, 10).until(
+        element = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.TAG_NAME, "body"))
         )
 
