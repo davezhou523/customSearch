@@ -65,6 +65,7 @@ def run():
 
 
 def start_google_search(keyword,query):
+
     sta = 1 #状态,1:启用，2：停用
     glListAll=model.ggl.google_gl_query_all(sta)
     for glData in glListAll:
@@ -85,6 +86,7 @@ def start_google_search(keyword,query):
                 title = result.get('title')
                 snippet = result.get('snippet')
                 url = result.get('link')
+
                 # 提取联系信息
                 # emails, phones = extract_contact_info(snippet)
                 # 从结果中提取电子邮件和电话号码
@@ -120,6 +122,31 @@ def start_google_search(keyword,query):
                 else:
                     save_to_database(keyword, url, ",".join(all_emails), ",".join(all_phones), 2,location_json,gl,lr)
             print(f"start_page is {start_page}")
+
+def single_search_save(url,keyword="",gl="",lr=""):
+    all_emails = set()
+    all_phones = set()
+    emails, phones = crawl_website(url)
+    all_emails.update(emails)
+    all_phones.update(phones)
+
+    print(f'url: {url}')
+    print(f"找到的电子邮件: {all_emails}")
+    print(f"找到的电话号码: {all_phones}")
+    location_info = get_website_location(get_ip_from_domain(url))
+    # 将字典转换为 JSON 字符串
+    location_json = json.dumps(location_info)
+    if location_info:
+        print(f"IP Address: {location_info['ip']}")
+        print(f"City: {location_info['city']}")
+        print(f"Region: {location_info['region']}")
+        print(f"Country: {location_info['country']}")
+    if len(all_emails) > 0:
+        for email in all_emails:
+            email = convert_email_domain_to_lowercase(email)
+            save_to_database(keyword, url, email, ",".join(all_phones), 2, location_json, gl, lr)
+    else:
+        save_to_database(keyword, url, ",".join(all_emails), ",".join(all_phones), 2, location_json, gl, lr)
 
 """
 域名部转成小写
@@ -243,7 +270,7 @@ def crawl_website(base_url, max_depth=2):
         visited_urls.add(url)
 
         emails, phones, soup = spider.get_beautiful_soup.getContentByBS(url)
-        if len(emails) > 0 or len(phones) > 0:
+        if len(emails) > 0:
             print(f"Found on {url}")
             print(f"Emails: {emails}")
             print(f"Phones: {phones}\n")
@@ -251,14 +278,22 @@ def crawl_website(base_url, max_depth=2):
 
         # 提取所有子页面链接
         if soup:
-            for link in soup.find_all('a', href=True):
-                new_url = urljoin(base_url, link['href'])
-                # 只爬取同一网站的链接，避免外部链接
-                if urlparse(new_url).netloc == urlparse(base_url).netloc:
-                    to_visit.append((new_url, depth + 1))
+            to_visit =get_all_url_by_soup(soup,base_url, depth)
+
     return set(), set()
 
 
+def get_all_url_by_soup(soup,base_url,depth):
+    """获取网站a标签href网站的内容"""
+    to_visit=[]
+    for link in soup.find_all('a', href=True):
+        new_url = urljoin(base_url, link['href'])
+        # 只爬取同一网站的链接，避免外部链接
+        if urlparse(new_url).netloc == urlparse(base_url).netloc:
+            to_visit.append((new_url, depth + 1))
+    print("to_visit")
+    print(to_visit)
+    return to_visit
 
 
 def save_to_database(keyword, url, email, phone, category,location,gl,lr):
@@ -279,8 +314,10 @@ def save_to_database(keyword, url, email, phone, category,location,gl,lr):
                 print(f"{email} 新增数据")
                 model.search_contact.search_contact_save(keyword,url, domain, email, phone, category,location,gl,lr)
         else:
-            print(f"{email} 新增数据")
-            model.search_contact.search_contact_save(keyword, url,domain, email, phone, category,location,gl,lr)
+            isExists = model.search_contact.search_contact_query("",url)
+            if isExists is None:
+                print(f"{email} 新增数据")
+                model.search_contact.search_contact_save(keyword, url,domain, email, phone, category,location,gl,lr)
 
     except Error as e:
         print(f"数据库错误: {e}")

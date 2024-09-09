@@ -32,6 +32,7 @@ def getContentByBS(url=""):
                 'https': 'socks5h://127.0.0.1:1080',  # 如果代理支持HTTPS，也请添加
             }
             response = requests.get(url, headers=headers, proxies=proxies,verify=None)
+            # response = requests.get(url, headers=headers, verify=None)
             # 检查请求是否成功
             print(f"Status code: {response.status_code}")
             if response.status_code == 200:
@@ -64,10 +65,10 @@ def getContentByBS(url=""):
 def get_email(soup):
     # 使用正则表达式查找邮箱地址
     # email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
-    emails = re.findall(EMAIL_PATTERN, soup.text)
+    emails = match_email_href(soup)
     # print(f"get_email: {emails}")
     if len(emails) == 0:
-        emails = match_email_href(soup)
+        emails = re.findall(EMAIL_PATTERN, soup.text)
         return emails
     return emails
 def get_phone(soup):
@@ -113,15 +114,11 @@ def match_email_href(soup):
     email_tags = soup.find_all('a', href=True)
 
     # 提取邮箱地址
-    emails = set()
     for tag in email_tags:
         if tag['href'].startswith('mailto:'):
             email= tag['href'].split("?")[0].replace("mailto:", "")
-            print(f"match_email_href:{email}")
             if len(email)>0:
-                print(f"test:{email}")
                 emails = re.findall(EMAIL_PATTERN, email)
-                print(f"test222:{emails}")
                 return emails
 
     return set()

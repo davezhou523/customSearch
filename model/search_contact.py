@@ -5,12 +5,15 @@ import tool.encry
 # global db_connection
 db_connection = DatabaseConnection()
 
-def search_contact_query(email=""):
+def search_contact_query(email="",url=""):
     sql = f"select * from search_contact where"
     params = {}
     if  len(email)>0:
         sql += " email = :email"
         params = {"email": email}
+    if len(url) > 0:
+        sql += " url = :url"
+        params = {"url": url}
 
     res = db_connection.execute_query(sql, params, False)
     return res

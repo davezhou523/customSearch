@@ -33,9 +33,11 @@ def main():
     # url = "https://shopping.medexpressgloves.com/Contact-Us_ep_58.html"
     # url = "https://www.smartandfinal.com/contact-us/"
     url = "https://www.henryschein.com/us-en/dental/contact.aspx"
+    url="https://www.cordovasafety.com/contact-1-2/"
+    url="https://dhs.saccounty.gov/PUB/EMS/Pages/PPE-List/DisposableGloves.aspx"
+    url="https://revenue.iowa.gov/taxes/tax-guidance/sales-use-excise-tax/medical-clinics-and-related-businesses-iowa-sales-and-use-tax-information"
     # emails, phones = google.google_search.crawl_website(url)
-    # emails, phones, soup = spider.get_web_drive.get_dynamic_content(url)
-    # print(emails, phones)
+    # google.google_search.single_search_save(url)
 
 
 
