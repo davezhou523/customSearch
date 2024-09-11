@@ -36,12 +36,22 @@ def main():
     url="https://www.cordovasafety.com/contact-1-2/"
     url="https://dhs.saccounty.gov/PUB/EMS/Pages/PPE-List/DisposableGloves.aspx"
     url="https://revenue.iowa.gov/taxes/tax-guidance/sales-use-excise-tax/medical-clinics-and-related-businesses-iowa-sales-and-use-tax-information"
+    url="https://www.commbuys.com/bso/external/purchaseorder/poSummary.sdo?docId=PO-19-1080-OSD03-SRC3-14635&releaseNbr=0&external=true&parentUrl=close"
     # emails, phones = google.google_search.crawl_website(url)
-    # google.google_search.single_search_save(url)
+    google.google_search.single_search_save(url)
+    # email="jfaulkner@safewareinc.ac.comphone"
+    # splistList = email.split(".")
+    # print(splistList)
+    # comReg=re.match(r"^com.*",splistList[-1])
+    # if comReg is not None:
+    #     splistList[-1]="com"
+    # email=".".join(splistList)
+    # print(email)
 
 
 
-    google.google_search.run()
+
+    # google.google_search.run()
 
 
 

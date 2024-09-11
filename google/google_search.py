@@ -188,8 +188,20 @@ def single_search_save(url,keyword="",gl="",lr=""):
 """
 def convert_email_domain_to_lowercase(email):
     local_part,domain_part=email.split("@")
-    return f"{local_part}@{domain_part.lower()}"
-
+    email= f"{local_part}@{domain_part.lower()}"
+    email =email_filter_suffix(email)
+    return email
+def email_filter_suffix(email):
+    splistList = email.split(".")
+    comReg = re.match(r"^com.*", splistList[-1])
+    if comReg is not None:
+        splistList[-1] = "com"
+        return ".".join(splistList)
+    netReg = re.match(r"^net.*", splistList[-1])
+    if netReg is not None:
+        splistList[-1] = "net"
+        return ".".join(splistList)
+    return email
 def get_api_key():
     create_time=datetime.datetime.now().strftime("%Y-%m-%d")
     #获取当天最新api_key
