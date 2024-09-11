@@ -11,6 +11,7 @@ from mysql.connector import Error
 import certifi
 import model.search_contact
 import model.ggl
+import model.glr
 import model.search_keyword
 import model.search_config
 import model.search_config_run
@@ -41,7 +42,7 @@ def run():
     #排除地区国家：中国、马来西亚，越南，泰国、印度
     query = (
         'disposable gloves contact email phone'
-        '-site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw -site:https://shopping.medexpressgloves.com/ -siete:https://www.gloves.com/pages/contact-us'
+        '-site:.cn -site:.my -site:.vn -site:.th -site:.in -site:tw'
     )
     keywordList=model.search_keyword.search_keyword_query(1)
 
@@ -51,78 +52,112 @@ def run():
     url="notEmpty"
     page_size = 600
     contactList= model.search_contact.search_contact_query_all("",url,page_size)
+    siteSet = set()
+    for contact in contactList:
+        #集合去重复
+        siteSet.add(f"-site:{contact.domain}")
 
-    exclusion_url = ' '.join([f'-site:{site.domain}' for site in contactList])
-    # print(exclusion_url)
+    site = list(siteSet)
+    exclusion_url = ' '.join(site)
     exclusion_query = ' '.join([f'-site:{site}' for site in exludeDomain])
-    exclusion_type=" -filetype:pdf -site:https://www.gloves.com/pages/contact-us"
+    exclusion_type=" -filetype:pdf -site:www.gloves.com"
 
-    query = f"{keywordList.keyword} {exclusion_query} {exclusion_type} {exclusion_url}"
-    # print(query)
+    query = f"{keywordList.keyword} {exclusion_type} {exclusion_url} {exclusion_query}"
     start_google_search(keywordList.keyword,query)
 
 
-
-
 def start_google_search(keyword,query):
+    res = start_google_search_by_location(keyword,query)
+    if res is None:
+        start_google_search_by_language(keyword, query)
 
-    sta = 1 #状态,1:启用，2：停用
-    glListAll=model.ggl.google_gl_query_all(sta)
+def start_google_search_by_location(keyword,query):
+    sta = 1  # 状态,1:启用，2：停用
+    glListAll = model.ggl.google_gl_query_all(sta)
+    if len(glListAll) == 0:
+        print(f"按用户的地理位置搜索已经查询完成")
+        return None
     for glData in glListAll:
         gl = glData.code
         num = 10  # 限制数量10条
-        start_page = 0 #免费搜索限制100页
+        start_page = 0  # 免费搜索限制100页
         record = 0
         while True:
             # ': gl,  # 最终用户的地理位置，可以根据需要更改
             # 'lr': lr  # 搜索结果语言
             lr = ""
-            results = get_search_results(query, num, start_page,gl,lr)
+            results = get_search_results(query, num, start_page, gl, lr)
             if len(results) == 0:
-                model.ggl.google_gl_update(gl,2)
+                model.ggl.google_gl_update(gl, 2)
                 break
             start_page = start_page + num
-            for result in results:
-                title = result.get('title')
-                snippet = result.get('snippet')
-                url = result.get('link')
-
-                # 提取联系信息
-                # emails, phones = extract_contact_info(snippet)
-                # 从结果中提取电子邮件和电话号码
-                all_emails = set()
-                all_phones = set()
-                emails, phones = crawl_website(url)
-                all_emails.update(emails)
-                all_phones.update(phones)
-
-                print(f'Title: {title}')
-                print(f'url: {url}')
-                print(f"找到的电子邮件: {all_emails}")
-                print(f"找到的电话号码: {all_phones}")
-                location_info = get_website_location(get_ip_from_domain(url))
-                # 将字典转换为 JSON 字符串
-                location_json = json.dumps(location_info)
-                if location_info:
-                    print(f"IP Address: {location_info['ip']}")
-                    print(f"City: {location_info['city']}")
-                    print(f"Region: {location_info['region']}")
-                    print(f"Country: {location_info['country']}")
-
-
-                record += 1
-                print(f" 条数:{record}")
-                currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                print(f" current time:{currentTime}")
-                print('-' * 40)
-                if len(all_emails) > 0:
-                    for email in all_emails:
-                        email=convert_email_domain_to_lowercase(email)
-                        save_to_database(keyword, url, email, ",".join(all_phones), 2,location_json,gl,lr)
-                else:
-                    save_to_database(keyword, url, ",".join(all_emails), ",".join(all_phones), 2,location_json,gl,lr)
+            # 处理搜索的结果
+            handle_search_result(results, keyword, gl, lr)
             print(f"start_page is {start_page}")
+    return True
+def start_google_search_by_language(keyword,query):
+    print(f"开始按网站语言搜索")
+    sta = 1  # 状态,1:启用，2：停用
+    glListAll = model.glr.google_lr_query_all(sta)
+    if len(glListAll) == 0:
+        print(f"按网站语言搜索已经查询完成")
+        return None
+    for glData in glListAll:
+        lr = glData.code
+        num = 10  # 限制数量10条
+        start_page = 0  # 免费搜索限制100页
+        record = 0
+        while True:
+            # ': gl,  # 最终用户的地理位置，可以根据需要更改
+            # 'lr': lr  # 搜索结果语言
+            gl = ""
+            results = get_search_results(query, num, start_page, gl, lr)
+            if len(results) == 0:
+                model.glr.google_lr_update(lr, 2)
+                break
+            start_page = start_page + num
+            #处理搜索的结果
+            handle_search_result(results,keyword,gl,lr)
+            print(f"start_page is {start_page}")
+    return True
+def handle_search_result(results,keyword,gl,lr):
+    """ 处理搜索的结果"""
+    for result in results:
+        title = result.get('title')
+        snippet = result.get('snippet')
+        url = result.get('link')
 
+        # 提取联系信息
+        # emails, phones = extract_contact_info(snippet)
+        # 从结果中提取电子邮件和电话号码
+        all_emails = set()
+        all_phones = set()
+        emails, phones = crawl_website(url)
+        all_emails.update(emails)
+        all_phones.update(phones)
+
+        print(f'Title: {title}')
+        print(f'url: {url}')
+        print(f"找到的电子邮件: {all_emails}")
+        print(f"找到的电话号码: {all_phones}")
+        location_info = get_website_location(get_ip_from_domain(url))
+        # 将字典转换为 JSON 字符串
+        location_json = json.dumps(location_info)
+        if location_info:
+            print(f"IP Address: {location_info['ip']}")
+            print(f"City: {location_info['city']}")
+            print(f"Region: {location_info['region']}")
+            print(f"Country: {location_info['country']}")
+
+        currentTime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print(f" current time:{currentTime}")
+        print('-' * 40)
+        if len(all_emails) > 0:
+            for email in all_emails:
+                email = convert_email_domain_to_lowercase(email)
+                save_to_database(keyword, url, email, ",".join(all_phones), 2, location_json, gl, lr)
+        else:
+            save_to_database(keyword, url, ",".join(all_emails), ",".join(all_phones), 2, location_json, gl, lr)
 def single_search_save(url,keyword="",gl="",lr=""):
     all_emails = set()
     all_phones = set()
@@ -196,7 +231,7 @@ def get_query_params(query, num, startPage=1, gl="us", lr=""):
 def get_search_results(query, num, startPage=1, gl="us", lr=""):
     # 设置请求参数
     # api_key = get_api_key()
-
+    print(f"query:{query}")
     response = get_query_params(query, num, startPage, gl, lr)
     print(f"response.status_code:{response.status_code}")
     if response.status_code == 200:
