@@ -20,7 +20,6 @@ def search_config_query_where(not_in_id):
         params.update({'ids': not_in_id})
 
     sql += " order by id asc"
-    print(sql)
     res = db_connection.execute_query(sql, params, False)
     return res
 

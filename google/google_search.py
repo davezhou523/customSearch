@@ -260,8 +260,9 @@ def get_search_results(query, num, startPage=1, gl="us", lr=""):
         for data in dataList:
             config_id.append(data.config_id)
         lastConfig = model.search_config.search_config_query_where(config_id)
-        model.search_config_run.search_config_run_save(lastConfig.id)
-        get_search_results(query, num, startPage, gl, lr)
+        if lastConfig is not None:
+            model.search_config_run.search_config_run_save(lastConfig.id)
+            get_search_results(query, num, startPage, gl, lr)
         return []
     else:
         print(f"get_search_results Error: {response.json()}")
